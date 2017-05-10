@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
+    android:layout_marginTop="30dp"
+    android:layout_marginBottom="30dp"
+    tools:context="hireapro.himanshu.hireapro.ConfirmOTPActivity">
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Verify your Mobile Number"
+    android:gravity="center"
+    android:textStyle="bold"
+
+    android:textSize="25dp"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/otp_clock"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:textSize="18dp"
+        android:text="Please enter OTP in case we fail to the sms automatically"/>
+
+    <EditText
+        android:id="@+id/otp_edittext"
+        android:layout_width="match_parent"
+        android:layout_marginRight="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="15dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:maxLength="4"
+        android:layout_gravity="center_horizontal"
+        android:textSize="25dp"
+        />
+    <Button
+
+        android:id="@+id/confirm_otp_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Confirm"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:theme="@style/ButtonTheme"
+        android:textColor="#FFFFFF"
+
+        android:textSize="16dp"
+        android:background="@drawable/roundedbutton"
+
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="37dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="37dp">
+        <Button
+            android:id="@+id/go_back_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Go BACK"
+            />
+
+        <Button
+            android:id="@+id/resend_otp_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Resend OTP"/>
+
+    </LinearLayout>
+
+</LinearLayout>
