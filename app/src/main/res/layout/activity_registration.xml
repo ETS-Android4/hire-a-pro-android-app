@@ -135,6 +135,7 @@
         android:paddingRight="40dp"
         android:textSize="16dp"
         android:background="@drawable/roundedbutton"
+
         />
 
     <Space android:layout_width="match_parent"
@@ -164,6 +165,7 @@
             android:drawableLeft="@drawable/fb_logo_small"
             android:background="#3b5998"
             android:paddingLeft="5dp"
+
             />
         <Button
             android:id="@+id/google_login_button"
