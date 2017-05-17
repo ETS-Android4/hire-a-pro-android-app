@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 
 public class HomeScreenActivity extends AppCompatActivity {
@@ -17,6 +18,8 @@ public class HomeScreenActivity extends AppCompatActivity {
     private SettingsFragment settingsFragment;
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
+    RecyclerView proTypeRecyclerview;
+    ProfessionalListAdapter professionalListAdapter;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -51,16 +54,28 @@ public class HomeScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
+        initializeComponents();
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+
+
+
+
+        //Setting Default Fragment
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.content, professionalListFragment).commit();
+    }
+
+    private void initializeComponents() {
         fragmentManager = getFragmentManager();
         professionalListFragment = new ProfessionalListFragment();
         favoritesFragment = new FavoritesFragment();
         notificationFragment = new NotificationFragment();
         settingsFragment = new SettingsFragment();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.content, professionalListFragment).commit();
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        proTypeRecyclerview = (RecyclerView) findViewById(R.id.pro_list_recyclerview);
+        professionalListAdapter = new ProfessionalListAdapter();
     }
 
 }
