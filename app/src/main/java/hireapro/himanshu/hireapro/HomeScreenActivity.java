@@ -6,8 +6,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+
+import java.util.List;
 
 public class HomeScreenActivity extends AppCompatActivity {
 
@@ -20,6 +23,7 @@ public class HomeScreenActivity extends AppCompatActivity {
     private FragmentTransaction fragmentTransaction;
     RecyclerView proTypeRecyclerview;
     ProfessionalListAdapter professionalListAdapter;
+     List<ProfessionalType> professionalType;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -60,7 +64,6 @@ public class HomeScreenActivity extends AppCompatActivity {
 
 
 
-
         //Setting Default Fragment
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.content, professionalListFragment).commit();
@@ -75,7 +78,9 @@ public class HomeScreenActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         proTypeRecyclerview = (RecyclerView) findViewById(R.id.pro_list_recyclerview);
-        professionalListAdapter = new ProfessionalListAdapter();
+        professionalListAdapter = new ProfessionalListAdapter(professionalType);
+        proTypeRecyclerview.setAdapter(professionalListAdapter);
+        proTypeRecyclerview.setLayoutManager(new LinearLayoutManager(this));
     }
 
 }
