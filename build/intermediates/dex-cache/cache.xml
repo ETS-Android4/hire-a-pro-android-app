@@ -3,138 +3,138 @@
 
     <item
         is-multidex="false"
-        jar="/root/.android/build-cache/c3fd0a3ef7760b5d0d7258cd8bdbb756d0dc9cad/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
-        <dex dex="/root/AndroidStudioProjects/HireAPro/app/build/intermediates/pre-dexed/debug/classes_601a0ab0aaec9f08def151631ea5fb7409e97601.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/root/.android/build-cache/0084e088d7721420eb54383941a45038766943f1/output/jars/classes.jar"
+        jar="/root/.android/build-cache/ed2bdcfb13a39ea385098439e137c09e7c2359f2/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
-        <dex dex="/root/AndroidStudioProjects/HireAPro/app/build/intermediates/pre-dexed/debug/classes_ab57295cd7cf594830d810fac048ace006dadcda.jar" />
+        <dex dex="/root/AndroidStudioProjects/Hire A Pro/app/build/intermediates/pre-dexed/debug/classes_8ba222e2ec774e6053e1d0e8abd7170023ffa206.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/root/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
-        <dex dex="/root/AndroidStudioProjects/HireAPro/app/build/intermediates/pre-dexed/debug/support-annotations-25.3.1_71603e9186bae46f98999e0a31ed8167b724c574.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/root/.android/build-cache/bfe37b6d9f1c5a0ee847b40fcd0e331f3cf7bb1b/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
-        <dex dex="/root/AndroidStudioProjects/HireAPro/app/build/intermediates/pre-dexed/debug/classes_d9b4ee32480516b240c1389b990d242d6f2be6f3.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/root/.android/build-cache/2b020955f3a2767eea5136758fe99c220b41a565/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
-        <dex dex="/root/AndroidStudioProjects/HireAPro/app/build/intermediates/pre-dexed/debug/classes_a6505e7ffe9e7e93b173c9060481395c2203d804.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/root/.android/build-cache/ac74ccbc9a6e4a403c2f20f9a7098df8937a792b/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
-        <dex dex="/root/AndroidStudioProjects/HireAPro/app/build/intermediates/pre-dexed/debug/classes_e22190c38dc02af8e8d9c02a8aaf2fff9a018818.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/root/.android/build-cache/c68c201d6dd319f9aa0595ac604f0ea803db90f8/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
-        <dex dex="/root/AndroidStudioProjects/HireAPro/app/build/intermediates/pre-dexed/debug/classes_c8ee4269d2328531dff9fc8a70a6b87f0c7b2dee.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/root/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
-        <dex dex="/root/AndroidStudioProjects/HireAPro/app/build/intermediates/pre-dexed/debug/support-annotations-25.3.1_71603e9186bae46f98999e0a31ed8167b724c574.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/root/.android/build-cache/034a6113f96a4e1c75619322146d487f3b0a41ff/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
-        <dex dex="/root/AndroidStudioProjects/HireAPro/app/build/intermediates/pre-dexed/debug/classes_d7524a1a71c8e6cf1ad85552f895315d767dbd34.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/root/.android/build-cache/a45a32cb0864d5170e415cb566e21674410296c9/output/jars/classes.jar"
+        jar="/root/.android/build-cache/d43cf4e06e50972240e45aabb64b2d0dec89e5c3/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
-        <dex dex="/root/AndroidStudioProjects/HireAPro/app/build/intermediates/pre-dexed/debug/classes_f432c489ec976ddd597037d8a9c861fde28d1521.jar" />
+        <dex dex="/root/AndroidStudioProjects/Hire A Pro/app/build/intermediates/pre-dexed/debug/classes_74368554e0bb55ff5b42a467e6f06ac81f6c5185.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/root/.android/build-cache/8f2b3ff10a7a09ef8025944e5ed8a041e6ba6586/output/jars/classes.jar"
+        jar="/root/.android/build-cache/fa21de18ff7db7a4329925facfc7ce27c1443d12/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
-        sha1="95519720620b553f63afc789beba9ad582807f7c">
-        <dex dex="/root/AndroidStudioProjects/HireAPro/app/build/intermediates/pre-dexed/debug/classes_39808e1fd2ff67ef31bbc0b6d46a63ba0c882f93.jar" />
+        sha1="914f5d3e3ace66080e59613708f06d129a222e25">
+        <dex dex="/root/AndroidStudioProjects/Hire A Pro/app/build/intermediates/pre-dexed/debug/classes_7ca792748d965478ba2f916fb99ae6b20108e8c9.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/root/.android/build-cache/b8a54612709688efb97b8641df0a8025e7cc4275/output/jars/classes.jar"
+        jar="/root/.android/build-cache/0fa12fb41a929fd8959641ade5c25d14994ddcf3/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/root/AndroidStudioProjects/HireAPro/app/build/intermediates/pre-dexed/debug/classes_1cb3c8ddfe19be46ea754fa9440641de0e078990.jar" />
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="/root/AndroidStudioProjects/Hire A Pro/app/build/intermediates/pre-dexed/debug/classes_aa23194ff2cbb27a0ef614460f443c0a30a963be.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/root/.android/build-cache/1716cea81c4139cc9aefb8ff00b96152b03eca6a/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
-        <dex dex="/root/AndroidStudioProjects/HireAPro/app/build/intermediates/pre-dexed/debug/classes_a45d68a2c0e49619f3caa1a1c89d36f15fd4efa5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/root/.android/build-cache/1094d187ddc54a5c42e8a3d6a3bb3879ee69769b/output/jars/classes.jar"
+        jar="/root/.android/build-cache/5e0e245c2b053747775cb197aaf3779cbfbc27b4/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
-        <dex dex="/root/AndroidStudioProjects/HireAPro/app/build/intermediates/pre-dexed/debug/classes_6db1f02220bf4e4227e32983f451232a7a40dfc4.jar" />
+        <dex dex="/root/AndroidStudioProjects/Hire A Pro/app/build/intermediates/pre-dexed/debug/classes_6ae1121091803a5226a92a0e63c801c1a2e84fd7.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/root/.android/build-cache/762fd5f8d8fb75412b0f1bf1afa9eb8f3632e1a2/output/jars/classes.jar"
+        jar="/root/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="/root/AndroidStudioProjects/Hire A Pro/app/build/intermediates/pre-dexed/debug/support-annotations-25.3.1_71603e9186bae46f98999e0a31ed8167b724c574.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/root/.android/build-cache/3a4fcc6d02d560ea7b7febea3d23124dfc2b7515/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="/root/AndroidStudioProjects/Hire A Pro/app/build/intermediates/pre-dexed/debug/classes_4025b5bd9b858c47814d44080d7f06b88962988e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/root/.android/build-cache/498097446806984da5574112452139e373df9bf5/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
-        <dex dex="/root/AndroidStudioProjects/HireAPro/app/build/intermediates/pre-dexed/debug/classes_d098d3772452368988ad950f4dede50cb87debd1.jar" />
+        <dex dex="/root/AndroidStudioProjects/Hire A Pro/app/build/intermediates/pre-dexed/debug/classes_2a59ac2b5d5b8daceb685de9516591b5b7a34f48.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/root/.android/build-cache/9bab752c4a1d7c9e8b88d2803cf7053d56697825/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="/root/AndroidStudioProjects/Hire A Pro/app/build/intermediates/pre-dexed/debug/classes_581443a27e067053487a8772b67b7c9db44a7aaf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/root/.android/build-cache/f002293a0b01df211ff48b5c5e5c3445b04e37b9/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="/root/AndroidStudioProjects/Hire A Pro/app/build/intermediates/pre-dexed/debug/classes_39cda57117c0a7c0ba72d493728c7391b9640d30.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/root/.android/build-cache/6a764eb44bab96383cf2a815a6fb1dc62ad6e0b5/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="/root/AndroidStudioProjects/Hire A Pro/app/build/intermediates/pre-dexed/debug/classes_a22e6554157cbe2127f7b2f857cae898eb489854.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/root/.android/build-cache/860a0b82e2aaaa067cf2c7c05cc328bb6f50a1bd/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="/root/AndroidStudioProjects/Hire A Pro/app/build/intermediates/pre-dexed/debug/classes_68a2aa89c0f923cab4925f6190a9ed02c990aa06.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/root/.android/build-cache/76806334da1652cd23e92da92f5651e2c50afccf/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="/root/AndroidStudioProjects/Hire A Pro/app/build/intermediates/pre-dexed/debug/classes_1761476f0f8746fc08143888853cedc7be76834b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/root/.android/build-cache/b7640a4a8e4e9746d520385cdf242c31f832fa60/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="/root/AndroidStudioProjects/Hire A Pro/app/build/intermediates/pre-dexed/debug/classes_d93ffbe87cd9e8d587970205198188d5a6207611.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/root/.android/build-cache/685b533fc392ac0538aee18276a00b813f40c1ac/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/root/AndroidStudioProjects/Hire A Pro/app/build/intermediates/pre-dexed/debug/classes_e1fdbf16fca81c1859ffb8e5b388bd6aeb823582.jar" />
     </item>
 
 </items>

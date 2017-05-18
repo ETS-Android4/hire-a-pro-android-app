@@ -30,23 +30,24 @@ public class HomeScreenActivity extends AppCompatActivity {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            fragmentTransaction = fragmentManager.beginTransaction();
             switch (item.getItemId()) {
                 case R.id.navigation_home:
 
-                    fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.add(R.id.content, professionalListFragment).commit();
+
+                    fragmentTransaction.replace(R.id.content,professionalListFragment).commit();
                     return true;
                 case R.id.navigation_favorites:
-                    fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.add(R.id.content, favoritesFragment).commit();
+
+                    fragmentTransaction.replace(R.id.content,favoritesFragment).commit();
                     return true;
                 case R.id.navigation_notifications:
-                    fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.add(R.id.content, notificationFragment).commit();
+
+                    fragmentTransaction.replace(R.id.content,notificationFragment).commit();
                     return true;
                 case R.id.navigation_settings:
-                    fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.add(R.id.content, settingsFragment).commit();
+
+                    fragmentTransaction.replace(R.id.content,settingsFragment).commit();
                     return true;
             }
             return false;
@@ -61,26 +62,29 @@ public class HomeScreenActivity extends AppCompatActivity {
         initializeComponents();
 
 
-
-
-
         //Setting Default Fragment
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.content, professionalListFragment).commit();
+
     }
 
     private void initializeComponents() {
         fragmentManager = getFragmentManager();
+
+
         professionalListFragment = new ProfessionalListFragment();
         favoritesFragment = new FavoritesFragment();
         notificationFragment = new NotificationFragment();
         settingsFragment = new SettingsFragment();
+
+
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
         proTypeRecyclerview = (RecyclerView) findViewById(R.id.pro_list_recyclerview);
         professionalListAdapter = new ProfessionalListAdapter(professionalType);
-        proTypeRecyclerview.setAdapter(professionalListAdapter);
-        proTypeRecyclerview.setLayoutManager(new LinearLayoutManager(this));
+        //proTypeRecyclerview.setAdapter(professionalListAdapter);
+        //proTypeRecyclerview.setLayoutManager(new LinearLayoutManager(this));
+
+
     }
 
 }
