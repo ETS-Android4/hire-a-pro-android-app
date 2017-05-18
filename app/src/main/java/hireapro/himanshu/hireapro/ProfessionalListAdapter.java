@@ -1,6 +1,7 @@
 package hireapro.himanshu.hireapro;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,12 +16,11 @@ import java.util.List;
 
 public class ProfessionalListAdapter extends RecyclerView.Adapter<ProfessionalListAdapter.MyViewHolder> {
 
-    private List<ProfessionalType>professionalTypeList;
     LayoutInflater layoutInflater;
+    private List<ProfessionalType> professionalTypeList;
 
 
-    public ProfessionalListAdapter(List<ProfessionalType>professionalType)
-    {
+    public ProfessionalListAdapter(List<ProfessionalType> professionalType) {
         this.professionalTypeList = professionalTypeList;
 
     }
@@ -36,10 +36,10 @@ public class ProfessionalListAdapter extends RecyclerView.Adapter<ProfessionalLi
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-       ProfessionalType professionalType = professionalTypeList.get(position);
+        ProfessionalType professionalType = professionalTypeList.get(position);
         holder.proTypeTextView.setText(professionalType.getProType());
         holder.protypeImageView.setImageResource(professionalType.getImageID());
-
+        Log.d("Does Image set ?","Yes");
     }
 
     @Override
@@ -47,8 +47,7 @@ public class ProfessionalListAdapter extends RecyclerView.Adapter<ProfessionalLi
         return professionalTypeList.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder
-    {
+    class MyViewHolder extends RecyclerView.ViewHolder {
         TextView proTypeTextView;
         ImageView protypeImageView;
 
