@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:padding="5dp">
+
+    <ImageView
+        android:id="@+id/search_result_row_imageview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/plumber_green" />
+
+    <TextView
+        android:id="@+id/name_search_result_row_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/search_result_row_imageview"
+        android:layout_margin="5dp"
+        android:gravity="center_horizontal"
+        android:text="John Wayne"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/job_search_result_row_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name_search_result_row_textview"
+        android:layout_margin="5dp"
+        android:gravity="center_horizontal"
+        android:text="Plumber"
+        android:textSize="13dp" />
+
+    <TextView
+        android:id="@+id/distance_search_result_row_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/job_search_result_row_textview"
+        android:layout_margin="5dp"
+        android:gravity="center_horizontal"
+        android:text="8 KM(s) away"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/location_search_result_row_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/distance_search_result_row_textview"
+        android:layout_margin="5dp"
+        android:gravity="center_horizontal"
+        android:text="Vegas , Nevada"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/base_rate_search_result_row_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/location_search_result_row_textview"
+        android:layout_margin="5dp"
+        android:gravity="center_horizontal"
+        android:text="Base Rate : Rs 300/hr"
+        android:textSize="16dp" />
+
+    <RatingBar
+        android:id="@+id/rating_result_row_ratingbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="center_horizontal"
+        android:numStars="5"
+        android:rating="3"
+        android:stepSize="0.5"
+        android:scaleX="0.8"
+        android:scaleY="0.8"
+        android:layout_below="@id/base_rate_search_result_row_textview"
+
+        />
+
+</RelativeLayout>

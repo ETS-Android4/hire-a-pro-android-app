@@ -37,8 +37,8 @@ public class ProfessionalListAdapter extends RecyclerView.Adapter<ProfessionalLi
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         ProfessionalType professionalType = professionalTypeList.get(position);
-        holder.proTypeTextView.setText(professionalType.getProType());
-        holder.protypeImageView.setImageResource(professionalType.getImageID());
+        holder.proTypeTextView.setText("f");
+        holder.protypeImageView.setImageResource(R.drawable.catering_blue);
         Log.d("Does Image set ?","Yes");
     }
 
