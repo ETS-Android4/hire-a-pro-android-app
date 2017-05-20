@@ -51,22 +51,24 @@ public class ProSearchResultActivity extends AppCompatActivity {
         prepareUrl(professionalType,userLatitude,userLongitude,distance);
         new ConnectServer().execute();
 
-        /*
+
         recyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(ProSearchResultActivity.this, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        Professional professional;
-                        Intent outletDetails = new Intent(OutletListActivity.this, OutletDetails.class);
+
+                        Toast.makeText(ProSearchResultActivity.this, ""+view.getId()+"Position"+position, Toast.LENGTH_SHORT).show();
+                        //Professional professional;
+                       /* Intent outletDetails = new Intent(OutletListActivity.this, OutletDetails.class);
                         if (regionSpinner.getSelectedItemPosition() == 0 && salesAreaSpinner.getSelectedItemPosition() == 0)
                             outlet = outletList.get(position);
                         else
                             outlet = filteredOutletList.get(position);
                         outletDetails.putExtra("OutletObject", outlet);
-                        startActivity(outletDetails);
+                        startActivity(outletDetails);*/
                     }
                 })
-        );*/
+        );
     }
 
     private void extractParameters() {
