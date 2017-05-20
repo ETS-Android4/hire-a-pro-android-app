@@ -3,24 +3,49 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    android:padding="5dp">
+    >
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="4dp">
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+       >
 
     <ImageView
-        android:id="@+id/search_result_row_imageview"
+        android:id="@+id/profile_pic_search_result_row_imageview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:src="@drawable/plumber_green" />
 
+            <ToggleButton
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+
+                android:textOn=""
+                android:textOff=""
+                android:clickable="true"
+                android:background="@drawable/ic_favorite_on"/>
+
     <TextView
         android:id="@+id/name_search_result_row_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/search_result_row_imageview"
-        android:layout_margin="5dp"
+        android:layout_below="@id/profile_pic_search_result_row_imageview"
+android:layout_marginTop="5dp"
         android:gravity="center_horizontal"
         android:text="John Wayne"
-        android:textSize="18dp"
+        android:textSize="16dp"
         android:textStyle="bold" />
 
     <TextView
@@ -28,54 +53,55 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/name_search_result_row_textview"
-        android:layout_margin="5dp"
+
         android:gravity="center_horizontal"
         android:text="Plumber"
-        android:textSize="13dp" />
+        android:textSize="11dp" />
 
     <TextView
         android:id="@+id/distance_search_result_row_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/job_search_result_row_textview"
-        android:layout_margin="5dp"
+        android:layout_marginTop="5dp"
         android:gravity="center_horizontal"
         android:text="8 KM(s) away"
-        android:textSize="16dp" />
+        android:textSize="13dp" />
 
     <TextView
         android:id="@+id/location_search_result_row_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/distance_search_result_row_textview"
-        android:layout_margin="5dp"
+
         android:gravity="center_horizontal"
         android:text="Vegas , Nevada"
-        android:textSize="16dp" />
+        android:textSize="13dp" />
 
     <TextView
         android:id="@+id/base_rate_search_result_row_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/location_search_result_row_textview"
-        android:layout_margin="5dp"
         android:gravity="center_horizontal"
         android:text="Base Rate : Rs 300/hr"
-        android:textSize="16dp" />
+        android:textSize="13dp" />
 
     <RatingBar
         android:id="@+id/rating_result_row_ratingbar"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:clickable="false"
         android:gravity="center_horizontal"
-        android:numStars="5"
         android:rating="3"
-        android:stepSize="0.5"
-        android:scaleX="0.8"
-        android:scaleY="0.8"
+        style="?android:attr/ratingBarStyleSmall"
+        android:numStars="5"
+        android:stepSize="0.1"
+        android:isIndicator="true"
+        android:layout_centerHorizontal="true"
         android:layout_below="@id/base_rate_search_result_row_textview"
-
         />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
 
 </RelativeLayout>

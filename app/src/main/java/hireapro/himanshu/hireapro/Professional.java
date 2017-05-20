@@ -1,10 +1,12 @@
 package hireapro.himanshu.hireapro;
 
+import java.io.Serializable;
+
 /**
  * Created by root on 5/18/17.
  */
 
-public class Professional {
+public class Professional implements Serializable {
 
     private String proID,name,emailID,job,address,profilePictureURL;
     private long phoneNumber,secondryPhoneNumber;
@@ -19,7 +21,8 @@ public class Professional {
     }
 
     public void setDistanceFromUser(float distanceFromUser) {
-        this.distanceFromUser = distanceFromUser;
+
+        this.distanceFromUser = (float) (Math.round(distanceFromUser * 100.0) / 100.0);
     }
 
     public String getProID() {

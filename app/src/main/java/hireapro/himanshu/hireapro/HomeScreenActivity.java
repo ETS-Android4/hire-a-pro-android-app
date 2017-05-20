@@ -6,12 +6,15 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 
 import java.util.List;
+
+import hireapro.himanshu.hireapro.fragments.FavoritesFragment;
+import hireapro.himanshu.hireapro.fragments.NotificationFragment;
+import hireapro.himanshu.hireapro.fragments.ProfessionalListFragment;
+import hireapro.himanshu.hireapro.fragments.SettingsFragment;
 
 public class HomeScreenActivity extends AppCompatActivity {
 
