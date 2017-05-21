@@ -48,6 +48,7 @@ public class ProSearchResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pro_search_result);
         Toolbar toolbar =  (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Search Results");
         setSupportActionBar(toolbar);
         if(getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
