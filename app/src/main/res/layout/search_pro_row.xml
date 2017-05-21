@@ -22,8 +22,9 @@
     <ImageView
         android:id="@+id/profile_pic_search_result_row_imageview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:layout_alignParentTop="true"
+
         android:src="@drawable/plumber_green" />
 
             <ToggleButton

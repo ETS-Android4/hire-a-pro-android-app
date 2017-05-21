@@ -2,6 +2,8 @@ package hireapro.himanshu.hireapro;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -36,8 +39,10 @@ public class ProSearchResultActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<Professional> professionalList = new ArrayList<>();
     private SearchProfessionalAdapter searchProfessionalAdapter;
+    Professional professional;
 
     String searchUrl = "http://hireapro.netii.net/api/pro/list_professional.php?type=";
+    String imageUrl;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,8 +61,8 @@ public class ProSearchResultActivity extends AppCompatActivity {
                 new RecyclerItemClickListener(ProSearchResultActivity.this, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-
-                        Toast.makeText(ProSearchResultActivity.this, ""+view.getId()+"Position"+position, Toast.LENGTH_SHORT).show();
+        TextView t = (TextView) view.findViewById(R.id.name_search_result_row_textview);
+                        Toast.makeText(ProSearchResultActivity.this, ""+t.getText().toString()+"Position"+position, Toast.LENGTH_SHORT).show();
                         //Professional professional;
                        /* Intent outletDetails = new Intent(OutletListActivity.this, OutletDetails.class);
                         if (regionSpinner.getSelectedItemPosition() == 0 && salesAreaSpinner.getSelectedItemPosition() == 0)
@@ -107,6 +112,7 @@ public class ProSearchResultActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(User... users) {
             HttpURLConnection httpURLConnection = null;
+            Bitmap b;
             //   httpURLConnection.setConnectTimeout(CONNECTIONOUT_TIME);
             BufferedReader bufferedReader = null;
             try {
@@ -126,11 +132,13 @@ public class ProSearchResultActivity extends AppCompatActivity {
                     stringBuffer.append(line);
                 }
                 String response = stringBuffer.toString();
+
                  Log.d("reponse",response);
                 JSONObject finalResponse = new JSONObject(response);
                 JSONArray jsonArray = finalResponse.getJSONArray("professional_list");
 
-                Professional professional;
+
+
                 for (int i = 0; i < jsonArray.length(); i++) {
                     professional = new Professional();
                     JSONObject finaljsonobject = jsonArray.getJSONObject(i);
@@ -139,12 +147,21 @@ public class ProSearchResultActivity extends AppCompatActivity {
                     professional.setBaseRate(Integer.valueOf(finaljsonobject.getString("base_rate")));
                     professional.setPhoneNumber(Long.valueOf(finaljsonobject.getString("phone_no")));
                     professional.setJob(finaljsonobject.getString("job_name"));
+                    professional.setProfilePictureURL(finaljsonobject.getString("profile_picture_url"));
                    // professional.setSecondryPhoneNumber(Long.valueOf(finaljsonobject.getString("phone_no_secondary")));
                     professional.setAddress(finaljsonobject.getString("address"));
                     professional.setLocationLatitude(Float.valueOf(finaljsonobject.getString("base_location_latitude")));
                     professional.setLocationLongitude(Float.valueOf(finaljsonobject.getString("base_location_longitude")));
                     professional.setDistanceFromUser(Float.valueOf(finaljsonobject.getString("distance")));
 
+                    url = new URL(professional.getProfilePictureURL());
+                    httpURLConnection = (HttpURLConnection) url.openConnection();
+                    httpURLConnection.setConnectTimeout(100 * 30);
+                    httpURLConnection.setReadTimeout(100 * 30);
+
+                    b = BitmapFactory.decodeStream((InputStream) httpURLConnection.getContent(),null,null);
+
+                    professional.setUserImage(b);
                     //    Log.d("Sample Data",finaljsonobject.getString("OutletName"));
                     professionalList.add(professional);
 
@@ -173,14 +190,16 @@ public class ProSearchResultActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            progressDialog.hide();
+
 
             searchProfessionalAdapter.notifyDataSetChanged();
 
             //Hiding the progress bar
 
-
+            progressDialog.hide();
 
         }
     }
+
+
 }

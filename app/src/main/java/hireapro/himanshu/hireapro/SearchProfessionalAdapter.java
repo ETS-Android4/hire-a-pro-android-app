@@ -52,13 +52,15 @@ import java.util.List;
 
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) {
-            Professional Professional = ProfessionalList.get(position);
-            holder.profilePictureImageView.setImageResource(R.drawable.catering_green);
-            holder.proNameTextView.setText(Professional.getName());
-            holder.jobTypeTextView.setText(Professional.getJob());
-            holder.distanceTextView.setText(Professional.getDistanceFromUser()+" Km(s) Away");
-            holder.locationTextView.setText(Professional.getAddress());
-            holder.baseRateTextView.setText("₹ " + Professional.getBaseRate()+" per hour");
+            Professional professional = ProfessionalList.get(position);
+            //holder.profilePictureImageView.setImageResource(R.drawable.catering_green);
+            holder.proNameTextView.setText(professional.getName());
+            holder.jobTypeTextView.setText(professional.getJob());
+            holder.distanceTextView.setText(professional.getDistanceFromUser()+" Km(s) Away");
+            holder.locationTextView.setText(professional.getAddress());
+            holder.baseRateTextView.setText("₹ " + professional.getBaseRate()+" per hour");
+            holder.profilePictureImageView.setImageBitmap(professional.getUserImage());
+
         }
 
         @Override

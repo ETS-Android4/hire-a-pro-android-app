@@ -1,5 +1,7 @@
 package hireapro.himanshu.hireapro;
 
+import android.graphics.Bitmap;
+
 import java.io.Serializable;
 
 /**
@@ -12,6 +14,7 @@ public class Professional implements Serializable {
     private long phoneNumber,secondryPhoneNumber;
     private int profilesPictureID;
     private float baseRate,locationLatitude,locationLongitude,distanceFromUser;
+    private Bitmap userImage;
 
     public Professional() {
     }
@@ -119,5 +122,13 @@ public class Professional implements Serializable {
 
     public void setLocationLongitude(float locationLongitude) {
         this.locationLongitude = locationLongitude;
+    }
+
+    public Bitmap getUserImage() {
+        return userImage;
+    }
+
+    public void setUserImage(Bitmap userImage) {
+        this.userImage = userImage;
     }
 }
