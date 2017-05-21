@@ -27,7 +27,7 @@
             >
 
             <ImageView
-                android:id="@+id/pro_image_detailed_imageview"
+                android:id="@+id/pro_image_detaileds_imageview"
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
                 android:text="Search Results"
@@ -38,7 +38,7 @@
                 />
 
             <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar_detailed_pro_info"
+                android:id="@+id/pro_name_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
@@ -59,7 +59,7 @@
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:clipToPadding="false"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         >
@@ -67,7 +67,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/rating_textview"
@@ -79,19 +79,25 @@
                 android:layout_marginLeft="45dp"
                 android:layout_marginTop="10dp"
                 android:padding="5dp"
-                android:background="@color/colorBackgroundDark"
+                android:textSize="15dp"
+                android:textColor="@color/colorBackgroundDark"
+                android:background="@color/colorPrimaryDark"
                 />
+
             <RatingBar
                 android:id="@+id/detailed_pro_rating_bar"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:layout_alignParentTop="true"
-                android:layout_toRightOf="@id/rating_textview"
-                android:scaleX="0.5"
-                android:scaleY="0.5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:gravity="center_horizontal"
                 android:rating="3"
-                android:stepSize="0.1"
+                style="?android:attr/ratingBarStyleSmall"
                 android:numStars="5"
+                android:stepSize="0.1"
+                android:layout_marginTop="15dp"
+                android:isIndicator="true"
+                android:layout_centerHorizontal="true"
+
                 />
             <ToggleButton
                 android:id="@+id/detailed_pro_favorite_toggle_button"
@@ -112,8 +118,9 @@
                 android:id="@+id/pro_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="14dp"
+                android:textSize="18dp"
                 android:textStyle="bold"
+                android:layout_marginTop="15dp"
                 android:layout_below="@id/detailed_pro_rating_bar"
                 android:gravity="center"
                 />
@@ -122,9 +129,10 @@
                 android:id="@+id/distance_between"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="13dp"
+                android:textSize="15dp"
                 android:layout_below="@id/pro_address"
                 android:gravity="center"
+                android:layout_marginBottom="10dp"
                 />
 
             <Button
@@ -134,10 +142,10 @@
                 android:text="Call"
                 android:textColor="#FFFFFF"
                 android:paddingLeft="30dp"
+
                 android:layout_below="@id/distance_between"
                 android:layout_alignParentLeft="true"
                 android:paddingRight="30dp"
-                android:drawableLeft="@drawable/ic_call_black_24dp"
 
                 android:background="@color/colorPrimaryDark"
                 />
@@ -148,22 +156,24 @@
                 android:layout_height="wrap_content"
                 android:text="Chat"
                 android:textColor="#FFFFFF"
+
                 android:paddingLeft="30dp"
                 android:layout_below="@id/distance_between"
                 android:layout_alignParentRight="true"
                 android:paddingRight="30dp"
-                android:drawableLeft="@drawable/ic_chat_black_24dp"
+
                 android:background="@color/colorPrimaryDark"
                 />
 
-            <View
+            <TextView
                 android:id="@+id/horizontal_line_1"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_below="@id/msg_pro_btn"
-                android:layout_marginTop="10dp"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="20dp"
                 android:background="@android:color/darker_gray"/>
 
             <TextView
@@ -191,6 +201,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_below="@id/txtv"
+                android:paddingLeft="10dp"
+                android:textSize="16dp"
+                android:gravity="center_vertical"
                 android:layout_marginLeft="50dp"
                 />
             <ImageView
@@ -203,9 +216,12 @@
                 android:layout_marginLeft="20dp"
                 />
             <TextView
-                android:id="@+id/location_detailed_textview"
+                android:id="@+id/pro_fulladdress_textview"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:textSize="16dp"
                 android:layout_below="@id/phoneno_detailed_textview"
                 android:layout_marginLeft="50dp"
                 />
@@ -223,7 +239,10 @@
                 android:id="@+id/baserate_detailed_textview"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_below="@id/location_detailed_textview"
+                android:paddingLeft="10dp"
+                android:textSize="16dp"
+                android:gravity="center_vertical"
+                android:layout_below="@id/pro_fulladdress_textview"
                 android:layout_marginLeft="50dp"
                 />
             <ImageView
@@ -239,6 +258,9 @@
                 android:id="@+id/job_detailed_textview"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
+                android:paddingLeft="10dp"
+                android:textSize="16dp"
+                android:gravity="center_vertical"
                 android:layout_below="@id/baserate_detailed_textview"
                 android:layout_marginLeft="50dp"
                 />

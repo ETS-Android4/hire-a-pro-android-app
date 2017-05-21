@@ -14,9 +14,11 @@ public class Professional implements Serializable {
     private long phoneNumber,secondryPhoneNumber;
     private int profilesPictureID;
     private float baseRate,locationLatitude,locationLongitude,distanceFromUser;
-    private Bitmap userImage;
+    private transient Bitmap userImage;
+    private boolean favorite;
 
     public Professional() {
+        super();
     }
 
     public float getDistanceFromUser() {
@@ -130,5 +132,13 @@ public class Professional implements Serializable {
 
     public void setUserImage(Bitmap userImage) {
         this.userImage = userImage;
+    }
+
+    public boolean isFavorite() {
+        return favorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
     }
 }

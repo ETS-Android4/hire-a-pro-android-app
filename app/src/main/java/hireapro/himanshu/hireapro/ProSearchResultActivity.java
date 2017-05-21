@@ -5,11 +5,10 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -23,6 +22,7 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
@@ -32,29 +32,29 @@ public class ProSearchResultActivity extends AppCompatActivity {
     int DEFAULTDISTANCE = 5;
     ProgressDialog progressDialog;
     RecyclerView searchedProList;
-    private String professionalType="plumber";
-    private double userLatitude=28.350595,userLongitude=77.3543528;
-    private int distance=DEFAULTDISTANCE;
     RecyclerView.LayoutManager mLayoutManager;
+    Professional professional;
+    String searchUrl = "http://hireapro.netii.net/api/pro/list_professional.php?type=";
+    String imageUrl;
+    private String professionalType = "plumber";
+    private double userLatitude = 28.350595, userLongitude = 77.3543528;
+    private int distance = DEFAULTDISTANCE;
     private RecyclerView recyclerView;
     private List<Professional> professionalList = new ArrayList<>();
     private SearchProfessionalAdapter searchProfessionalAdapter;
-    Professional professional;
 
-    String searchUrl = "http://hireapro.netii.net/api/pro/list_professional.php?type=";
-    String imageUrl;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pro_search_result);
-        Toolbar toolbar =  (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Search Results");
         setSupportActionBar(toolbar);
-        if(getSupportActionBar() != null)
+        if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         initializeComponents();
         extractParameters();
-        prepareUrl(professionalType,userLatitude,userLongitude,distance);
+        prepareUrl(professionalType, userLatitude, userLongitude, distance);
         new ConnectServer().execute();
 
 
@@ -62,16 +62,15 @@ public class ProSearchResultActivity extends AppCompatActivity {
                 new RecyclerItemClickListener(ProSearchResultActivity.this, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-        TextView t = (TextView) view.findViewById(R.id.name_search_result_row_textview);
-                        Toast.makeText(ProSearchResultActivity.this, ""+t.getText().toString()+"Position"+position, Toast.LENGTH_SHORT).show();
-                        //Professional professional;
-                       /* Intent outletDetails = new Intent(OutletListActivity.this, OutletDetails.class);
-                        if (regionSpinner.getSelectedItemPosition() == 0 && salesAreaSpinner.getSelectedItemPosition() == 0)
-                            outlet = outletList.get(position);
-                        else
-                            outlet = filteredOutletList.get(position);
-                        outletDetails.putExtra("OutletObject", outlet);
-                        startActivity(outletDetails);*/
+                        TextView t = (TextView) view.findViewById(R.id.name_search_result_row_textview);
+                       // Toast.makeText(ProSearchResultActivity.this, "" + t.getText().toString() + "Position" + position, Toast.LENGTH_SHORT).show();
+                        Professional professional;
+                        Intent proDetails = new Intent(ProSearchResultActivity.this, DetailedProfessionalInfo.class);
+
+                        professional = professionalList.get(position);
+
+                        proDetails.putExtra("ProObject", professional);
+                        startActivity(proDetails);
                     }
                 })
         );
@@ -87,21 +86,20 @@ public class ProSearchResultActivity extends AppCompatActivity {
         progressDialog.setMessage("Please Wait ....");
         recyclerView = (RecyclerView) findViewById(R.id.pro_search_recycler);
         searchProfessionalAdapter = new SearchProfessionalAdapter(professionalList);
-        mLayoutManager = new GridLayoutManager(getApplicationContext(),2);
+        mLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(searchProfessionalAdapter);
     }
 
-    private void prepareUrl(String professionalType , double userLatitude ,double userLongitude , int distance ) {
+    private void prepareUrl(String professionalType, double userLatitude, double userLongitude, int distance) {
         searchUrl = searchUrl + professionalType + "&user_latitude=";
         searchUrl = searchUrl + userLatitude + "&user_longitude=";
         searchUrl = searchUrl + userLongitude + "&distance=";
         searchUrl = searchUrl + distance;
     }
 
-    public class ConnectServer extends AsyncTask< User,String,String>
-    {
+    public class ConnectServer extends AsyncTask<User, String, String> {
         boolean loginFailure = false;
 
         @Override
@@ -118,26 +116,24 @@ public class ProSearchResultActivity extends AppCompatActivity {
             BufferedReader bufferedReader = null;
             try {
                 URL url = new URL(searchUrl);
-                httpURLConnection  =(HttpURLConnection) url.openConnection();
+                httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.connect();
 
                 InputStream inputStream = httpURLConnection.getInputStream();
                 bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 
-                StringBuffer stringBuffer =new StringBuffer();
+                StringBuffer stringBuffer = new StringBuffer();
 
                 String line = "";
 
-                while((line = bufferedReader.readLine())!=null)
-                {
+                while ((line = bufferedReader.readLine()) != null) {
                     stringBuffer.append(line);
                 }
                 String response = stringBuffer.toString();
 
-                 Log.d("reponse",response);
+                Log.d("reponse", response);
                 JSONObject finalResponse = new JSONObject(response);
                 JSONArray jsonArray = finalResponse.getJSONArray("professional_list");
-
 
 
                 for (int i = 0; i < jsonArray.length(); i++) {
@@ -149,7 +145,7 @@ public class ProSearchResultActivity extends AppCompatActivity {
                     professional.setPhoneNumber(Long.valueOf(finaljsonobject.getString("phone_no")));
                     professional.setJob(finaljsonobject.getString("job_name"));
                     professional.setProfilePictureURL(finaljsonobject.getString("profile_picture_url"));
-                   // professional.setSecondryPhoneNumber(Long.valueOf(finaljsonobject.getString("phone_no_secondary")));
+                    // professional.setSecondryPhoneNumber(Long.valueOf(finaljsonobject.getString("phone_no_secondary")));
                     professional.setAddress(finaljsonobject.getString("address"));
                     professional.setLocationLatitude(Float.valueOf(finaljsonobject.getString("base_location_latitude")));
                     professional.setLocationLongitude(Float.valueOf(finaljsonobject.getString("base_location_longitude")));
@@ -160,7 +156,7 @@ public class ProSearchResultActivity extends AppCompatActivity {
                     httpURLConnection.setConnectTimeout(100 * 30);
                     httpURLConnection.setReadTimeout(100 * 30);
 
-                    b = BitmapFactory.decodeStream((InputStream) httpURLConnection.getContent(),null,null);
+                    b = BitmapFactory.decodeStream((InputStream) httpURLConnection.getContent(), null, null);
 
                     professional.setUserImage(b);
                     //    Log.d("Sample Data",finaljsonobject.getString("OutletName"));
@@ -169,23 +165,18 @@ public class ProSearchResultActivity extends AppCompatActivity {
                     //Log.d("outletData", outlet.getOutletName());
                 }
 
-            }
-
-
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 e.printStackTrace();
                 loginFailure = true;
 
-            }
-            finally {
+            } finally {
 
 
-                if(httpURLConnection!=null)
+                if (httpURLConnection != null)
                     httpURLConnection.disconnect();
             }
 
-            return  null;
+            return null;
         }
 
         @Override
