@@ -6,10 +6,12 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
@@ -33,12 +35,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private int CONNECTIONOUT_TIME = 15000;
     ProgressDialog progressDialog;
 
+
 private User user;
     //views
     private EditText emailPhoneEditText,passwordEditText;
-    private Button loginButton,fbLoginButton,googleLoginButton;
+    private Button loginButton;
     private Switch remembermeSwitch;
     private TextView forgotPasswordTextView,createAccountTextView;
+    private TextInputLayout inputLayoutEmail,inputLayoutPassword;
 
 
     @Override
@@ -48,9 +52,6 @@ private User user;
         intializeComponents();
         loginButton.setOnClickListener(this);
         createAccountTextView.setOnClickListener(this);
-        fbLoginButton.setOnClickListener(this);
-        googleLoginButton.setOnClickListener(this);
-
 
     }
 
@@ -59,11 +60,14 @@ private User user;
         final int id = view.getId();
         switch (id) {
             case R.id.login_button:
-                getUserData();
-                validateData();
-                prepareUrl();
-                new ConnectServer().execute(user);
-                break;
+
+                if(validateEmail() && validatePassword()) {
+                    getUserData();
+                    prepareUrl();
+                    checkRememberMe();
+                    new ConnectServer().execute(user);
+                }
+                    break;
             case R.id.create_account_textview:
                 Toast.makeText(LoginActivity.this, "Welcome", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(LoginActivity.this,RegistrationActivity.class));
@@ -71,15 +75,15 @@ private User user;
             case R.id.forgot_password_textview:
                 // your code for button2 here
                 break;
-            case R.id.facebook_login_button:
-                Toast.makeText(LoginActivity.this, "Will be Implemented Soon", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.google_login_button:
-                Toast.makeText(LoginActivity.this, "Will be Implemented Soon", Toast.LENGTH_SHORT).show();
-                break;
+
 
         }
     }
+
+    private boolean checkRememberMe() {
+        return false;
+    }
+
 
     private void prepareUrl() {
       
@@ -99,7 +103,33 @@ private User user;
         user.setPassword(passwordEditText.getText().toString());
     }
 
-    private void validateData() {
+    private void requestFocus(View view) {
+        if (view.requestFocus()) {
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        }
+    }
+
+    private boolean validateEmail() {
+        if (emailPhoneEditText.getText().toString().trim().isEmpty()) {
+            inputLayoutEmail.setError("Please Enter Email or Phone no");
+            requestFocus(emailPhoneEditText);
+            return false;
+        } else {
+            inputLayoutEmail.setErrorEnabled(false);
+        }
+        return true;
+    }
+
+    private boolean validatePassword() {
+        if (passwordEditText.getText().toString().trim().isEmpty()) {
+            inputLayoutPassword.setError("Please enter password");
+            requestFocus(passwordEditText);
+            return false;
+        } else {
+            inputLayoutPassword.setErrorEnabled(false);
+        }
+
+        return true;
     }
 
 
@@ -107,8 +137,9 @@ private User user;
         emailPhoneEditText = (EditText) findViewById(R.id.phone_email_edittext);
         passwordEditText= (EditText) findViewById(R.id.password_edittext);
         loginButton = (Button) findViewById(R.id.login_button);
-        fbLoginButton= (Button) findViewById(R.id.facebook_login_button);
-        googleLoginButton = (Button) findViewById(R.id.google_login_button);
+        inputLayoutEmail = (TextInputLayout) findViewById(R.id.input_layout_emailphone);
+        inputLayoutPassword = (TextInputLayout) findViewById(R.id.input_layout_password);
+
      //   remembermeSwitch = (Switch) findViewById(R.id.remember_me_toggle);
         forgotPasswordTextView = (TextView) findViewById(R.id.forgot_password_textview);
         createAccountTextView = (TextView) findViewById(R.id.create_account_textview);

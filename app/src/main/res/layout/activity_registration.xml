@@ -13,34 +13,6 @@
 
 
 
-   <!-- <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="HIRE"
-            android:textColor="@color/colorPrimary"
-            android:gravity="right"
-            android:textSize="30dp"/>
-
-        <TextView android:layout_width="wrap_content"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:layout_height="wrap_content"
-            android:text="A"
-            android:textSize="30dp"/>
-
-        <TextView android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="PRO"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="30dp"/>
-        </LinearLayout> -->
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,8 +35,15 @@
             android:textSize="30dp"/>
     </LinearLayout>
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/input_layout_name"
+        android:id="@+id/input_layout_name_registration"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -82,7 +61,7 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/input_layout_email"
+        android:id="@+id/input_layout_phoneno_registration"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -94,13 +73,15 @@
             android:id="@+id/phone_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:hint="Phone Number" />
+            android:inputType="number"
+            android:hint="Phone Number"
+
+            />
 
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/input_layout_password"
+        android:id="@+id/input_layout_password_registration"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -116,7 +97,7 @@
             android:hint="Password" />
 
     </android.support.design.widget.TextInputLayout>
-
+    </LinearLayout>
 
     <Button
         android:id="@+id/registerBTN"
@@ -124,9 +105,10 @@
         android:layout_height="wrap_content"
         android:text="Register"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
+
         android:theme="@style/ButtonTheme"
         android:textColor="#FFFFFF"
         android:paddingTop="10dp"
@@ -141,43 +123,6 @@
     <Space android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="You can also Register with"
-        android:textSize="20dp"
-        android:gravity="center"
-        />
 
-    <LinearLayout
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/facebook_login_button"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:textColor="#FFFFFF"
-            android:text="Facebook"
-            android:drawableLeft="@drawable/fb_logo_small"
-            android:background="#3b5998"
-            android:paddingLeft="5dp"
 
-            />
-        <Button
-            android:id="@+id/google_login_button"
-            android:text="Google"
-            android:textColor="#FFFFFF"
-            android:drawableLeft="@drawable/gmail_small"
-            android:layout_marginLeft="5dp"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:background="#DD4E41"
-            android:layout_height="match_parent"
-            android:clickable="true"
-            />
-    </LinearLayout>
 </LinearLayout>

@@ -38,7 +38,7 @@
 
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_name"
+                android:id="@+id/input_layout_emailphone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -52,6 +52,8 @@
                     android:layout_height="wrap_content"
                     android:inputType="text"
                     android:hint="Phone no or Email id" />
+
+
 
             </android.support.design.widget.TextInputLayout>
 
@@ -108,7 +110,7 @@
                 android:layout_gravity="end"
 
                 android:clickable="true"
-
+                android:layout_marginTop="15dp"
 
                 android:paddingTop="20dp"
                 android:paddingBottom="10dp"
@@ -131,48 +133,9 @@
             <Space android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="You can also login with"
-                android:textSize="20dp"
-                android:gravity="center"
-                />
-
-            <LinearLayout
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
-                <Button
-                    android:id="@+id/facebook_login_button"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:textColor="#FFFFFF"
-                    android:text="Facebook"
-                    android:drawableLeft="@drawable/fb_logo_small"
 
 
-                    android:paddingLeft="5dp"
-                    android:theme="@style/FBButtonTheme"
-                    />
-                <Button
-                    android:id="@+id/google_login_button"
-                    android:text="Google"
-                    android:textColor="#FFFFFF"
-                    android:drawableLeft="@drawable/gmail_small"
-                    android:layout_marginLeft="5dp"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:theme="@style/GoogleButtonTheme"
-                    />
-            </LinearLayout>
-
-
-        </LinearLayout>
+</LinearLayout>
 
 
 
