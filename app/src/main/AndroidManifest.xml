@@ -32,7 +32,7 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".ProSearchResultActivity">
+        <activity android:name=".SearchProfessionalActivity">
 
         </activity>
         <activity android:name=".DetailedProfessionalInfo" />

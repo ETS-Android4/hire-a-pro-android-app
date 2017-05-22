@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hireapro.himanshu.hireapro.ProfessionalListAdapter;
-import hireapro.himanshu.hireapro.ProfessionalType;
+import hireapro.himanshu.hireapro.ProfessionalCategory;
 import hireapro.himanshu.hireapro.R;
 
 
@@ -26,7 +26,7 @@ public class ProfessionalListFragment extends Fragment {
     private RecyclerView pro_list;
 
    ProfessionalListAdapter professionalListAdapter;
-    List<ProfessionalType> professionalTypeList;
+    List<ProfessionalCategory> professionalTypeList;
 
     public ProfessionalListFragment() {
         // Required empty public constructor
@@ -50,15 +50,15 @@ public class ProfessionalListFragment extends Fragment {
     }
 
     private void prepareProfessionalListData() {
-        professionalTypeList= new ArrayList<ProfessionalType>();
+        professionalTypeList= new ArrayList<ProfessionalCategory>();
 
-        ProfessionalType professionalType = new ProfessionalType(R.drawable.catering_blue,"Yo");
+        ProfessionalCategory professionalType = new ProfessionalCategory(R.drawable.catering_blue,"Yo");
         professionalTypeList.add(professionalType);
 
-        professionalType = new ProfessionalType(R.drawable.catering_blue,"Yo");
+        professionalType = new ProfessionalCategory(R.drawable.catering_blue,"Yo");
         professionalTypeList.add(professionalType);
 
-        professionalType = new ProfessionalType(R.drawable.catering_blue,"Yo");
+        professionalType = new ProfessionalCategory(R.drawable.catering_blue,"Yo");
         professionalTypeList.add(professionalType);
 
 

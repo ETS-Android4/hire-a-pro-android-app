@@ -21,7 +21,7 @@ public class HomeScreenActivity extends AppCompatActivity {
 
     RecyclerView proTypeRecyclerview;
     ProfessionalListAdapter professionalListAdapter;
-    List<ProfessionalType> professionalTypeList;
+    List<ProfessionalCategory> professionalTypeList;
 
     //Fragment declaration
     private ProfessionalListFragment professionalListFragment;
@@ -111,13 +111,13 @@ public class HomeScreenActivity extends AppCompatActivity {
 
     private void prepareProfessionalListData() {
 
-        ProfessionalType professionalType = new ProfessionalType(R.drawable.catering_blue,"Yo");
+        ProfessionalCategory professionalType = new ProfessionalCategory(R.drawable.catering_blue,"Yo");
         professionalTypeList.add(professionalType);
 
-        professionalType = new ProfessionalType(R.drawable.catering_blue,"Yo");
+        professionalType = new ProfessionalCategory(R.drawable.catering_blue,"Yo");
         professionalTypeList.add(professionalType);
 
-        professionalType = new ProfessionalType(R.drawable.catering_blue,"Yo");
+        professionalType = new ProfessionalCategory(R.drawable.catering_blue,"Yo");
         professionalTypeList.add(professionalType);
 
 

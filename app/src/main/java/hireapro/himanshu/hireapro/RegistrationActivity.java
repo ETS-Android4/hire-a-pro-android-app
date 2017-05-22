@@ -20,6 +20,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import hireapro.himanshu.hireapro.dataclass.User;
+
 public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener {
 
     ProgressDialog progressDialog;

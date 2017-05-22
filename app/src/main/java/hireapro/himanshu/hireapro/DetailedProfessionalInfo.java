@@ -19,6 +19,8 @@ import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import hireapro.himanshu.hireapro.dataclass.Professional;
+
 public class DetailedProfessionalInfo extends AppCompatActivity implements Serializable {
 
     private ImageView proImageIV;
@@ -28,6 +30,7 @@ public class DetailedProfessionalInfo extends AppCompatActivity implements Seria
     private Button callButton,msgButton;
     private Toolbar proNameToolbar;
     Professional professional;
+    Bitmap defaultProImage;
     ProgressDialog progressDialog;
 
     @Override
@@ -66,6 +69,7 @@ public class DetailedProfessionalInfo extends AppCompatActivity implements Seria
         callButton = (Button) findViewById(R.id.call_pro_btn);
         msgButton = (Button) findViewById(R.id.msg_pro_btn);
         proNameToolbar =  (Toolbar) findViewById(R.id.pro_name_toolbar);
+        defaultProImage = BitmapFactory.decodeResource(getResources(), R.drawable.default_user);
     }
 
     public class DisplayData extends AsyncTask<String,Void,Bitmap>
@@ -93,6 +97,9 @@ public class DetailedProfessionalInfo extends AppCompatActivity implements Seria
         protected Bitmap doInBackground(String... params) {
             URL url; HttpURLConnection httpURLConnection = null; Bitmap b=null;
             String urlh = professional.getProfilePictureURL();
+            if(urlh.equals(""))
+              return defaultProImage;
+            else {
             try {
                 url = new URL(urlh);
                 httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -107,6 +114,6 @@ public class DetailedProfessionalInfo extends AppCompatActivity implements Seria
 
             }
             return b;
-        }
+        }}
     }
 }

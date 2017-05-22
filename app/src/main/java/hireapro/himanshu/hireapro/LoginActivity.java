@@ -4,12 +4,9 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -18,16 +15,15 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.apache.http.params.HttpParams;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
+import hireapro.himanshu.hireapro.dataclass.User;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -189,7 +185,7 @@ boolean loginFailure = false;
                 JSONObject finalResponse  = new JSONObject(response);
                 String name = finalResponse.optString("user_name");
                 int stat = finalResponse.getInt("status");
-                if(stat!=201)
+                if(stat!=200)
                 {
                     Toast.makeText(LoginActivity.this, "Unable to Login", Toast.LENGTH_SHORT).show();
                     return name;

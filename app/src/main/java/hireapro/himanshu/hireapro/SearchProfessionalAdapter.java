@@ -16,7 +16,9 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-    public class SearchProfessionalAdapter extends RecyclerView.Adapter<SearchProfessionalAdapter.MyViewHolder> {
+    import hireapro.himanshu.hireapro.dataclass.Professional;
+
+public class SearchProfessionalAdapter extends RecyclerView.Adapter<SearchProfessionalAdapter.MyViewHolder> {
 
         private List<Professional> ProfessionalList;
 

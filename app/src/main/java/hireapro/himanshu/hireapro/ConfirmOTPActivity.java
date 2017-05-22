@@ -3,7 +3,6 @@ package hireapro.himanshu.hireapro;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +18,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
+import hireapro.himanshu.hireapro.dataclass.User;
 
 public class ConfirmOTPActivity extends AppCompatActivity implements View.OnClickListener {
     private int otp;
