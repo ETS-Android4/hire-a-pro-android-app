@@ -164,7 +164,8 @@ public class SearchProfessionalActivity extends AppCompatActivity {
                         httpURLConnection.setReadTimeout(100 * 30);
 
                         b = BitmapFactory.decodeStream((InputStream) httpURLConnection.getContent(), null, null);
-
+                        if(b==null)
+                            b=defaultProImage;
                         professional.setUserImage(b);
                     }
                     //    Log.d("Sample Data",finaljsonobject.getString("OutletName"));

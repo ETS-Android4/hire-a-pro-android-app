@@ -36,17 +36,19 @@ public class ProfessionalListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootview = inflater.inflate(R.layout.fragment_professional_list,null);
+        View rootview = inflater.inflate(R.layout.fragment_professional_list,container,false);
         pro_list = (RecyclerView) rootview.findViewById(R.id.pro_type_list_recyclerview);
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
+
         pro_list.setLayoutManager(llm);
         pro_list.setItemAnimator(new DefaultItemAnimator());
         professionalListAdapter = new ProfessionalListAdapter(professionalTypeList);
         pro_list.setAdapter(professionalListAdapter);
         prepareProfessionalListData();
 
-        return inflater.inflate(R.layout.fragment_professional_list, container, false);
+        return rootview;
+        //return inflater.inflate(R.layout.fragment_professional_list, container, false);
     }
 
     private void prepareProfessionalListData() {

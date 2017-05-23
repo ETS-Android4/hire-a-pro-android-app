@@ -107,6 +107,8 @@ public class DetailedProfessionalInfo extends AppCompatActivity implements Seria
                 httpURLConnection.setReadTimeout(100 * 30);
 
                 b = BitmapFactory.decodeStream((InputStream) httpURLConnection.getContent(), null, null);
+                if(b==null)
+                    b=defaultProImage;
 
             }
             catch (Exception e)

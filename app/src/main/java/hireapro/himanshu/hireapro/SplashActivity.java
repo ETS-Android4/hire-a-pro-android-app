@@ -24,7 +24,7 @@ public class SplashActivity extends AppCompatActivity {
 
         Log.d("Diatnace", distanceInMeters+"");*/
 
-        Intent intent = new Intent(this, SearchProfessionalActivity.class);
+        Intent intent = new Intent(this, HomeScreenActivity.class);
         startActivity(intent);
         finish();
     }

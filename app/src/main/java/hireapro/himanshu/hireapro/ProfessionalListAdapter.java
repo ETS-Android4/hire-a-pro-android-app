@@ -17,7 +17,7 @@ import java.util.List;
 public class ProfessionalListAdapter extends RecyclerView.Adapter<ProfessionalListAdapter.MyViewHolder> {
 
     LayoutInflater layoutInflater;
-    private List<ProfessionalCategory> professionalTypeList;
+    private List<ProfessionalCategory> professionalTypeList=null;
 
 
     public ProfessionalListAdapter(List<ProfessionalCategory> professionalType) {
@@ -38,7 +38,7 @@ public class ProfessionalListAdapter extends RecyclerView.Adapter<ProfessionalLi
     public void onBindViewHolder(MyViewHolder holder, int position) {
         ProfessionalCategory professionalType = professionalTypeList.get(position);
         holder.proTypeTextView.setText("f");
-        //holder.protypeImageView.setImageResource(R.drawable.catering_blue);
+        holder.protypeImageView.setImageResource(R.drawable.catering_blue);
         Log.d("Does Image set ?","Yes");
     }
 
