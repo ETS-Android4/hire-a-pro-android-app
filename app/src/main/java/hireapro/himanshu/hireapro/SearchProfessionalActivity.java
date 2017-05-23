@@ -37,11 +37,11 @@ public class SearchProfessionalActivity extends AppCompatActivity {
     Professional professional;
     String searchUrl = "http://hireapro.netii.net/api/pro/list_professional.php?type=";
     String imageUrl;
+    Bitmap defaultProImage;
     private String professionalType = "plumber";
     private double userLatitude = 28.350595, userLongitude = 77.3543528;
     private int distance = DEFAULTDISTANCE;
     private RecyclerView recyclerView;
-    Bitmap defaultProImage;
     private List<Professional> professionalList = new ArrayList<>();
     private SearchProfessionalAdapter searchProfessionalAdapter;
 
@@ -65,7 +65,7 @@ public class SearchProfessionalActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(View view, int position) {
                         TextView t = (TextView) view.findViewById(R.id.name_search_result_row_textview);
-                       // Toast.makeText(SearchProfessionalActivity.this, "" + t.getText().toString() + "Position" + position, Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(SearchProfessionalActivity.this, "" + t.getText().toString() + "Position" + position, Toast.LENGTH_SHORT).show();
                         Professional professional;
                         Intent proDetails = new Intent(SearchProfessionalActivity.this, DetailedProfessionalInfo.class);
 
@@ -155,7 +155,7 @@ public class SearchProfessionalActivity extends AppCompatActivity {
                     professional.setLocationLongitude(Float.valueOf(finaljsonobject.getString("base_location_longitude")));
                     professional.setDistanceFromUser(Float.valueOf(finaljsonobject.getString("distance")));
 
-                    if(professional.getProfilePictureURL().equals(""))
+                    if (professional.getProfilePictureURL().equals(""))
                         professional.setUserImage(defaultProImage);
                     else {
                         url = new URL(professional.getProfilePictureURL());
@@ -164,8 +164,8 @@ public class SearchProfessionalActivity extends AppCompatActivity {
                         httpURLConnection.setReadTimeout(100 * 30);
 
                         b = BitmapFactory.decodeStream((InputStream) httpURLConnection.getContent(), null, null);
-                        if(b==null)
-                            b=defaultProImage;
+                        if (b == null)
+                            b = defaultProImage;
                         professional.setUserImage(b);
                     }
                     //    Log.d("Sample Data",finaljsonobject.getString("OutletName"));

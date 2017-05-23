@@ -2,6 +2,7 @@ package hireapro.himanshu.hireapro.fragments;
 
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -13,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -25,7 +27,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import hireapro.himanshu.hireapro.DetailedProfessionalInfo;
 import hireapro.himanshu.hireapro.R;
+import hireapro.himanshu.hireapro.RecyclerItemClickListener;
 import hireapro.himanshu.hireapro.SearchProfessionalActivity;
 import hireapro.himanshu.hireapro.SearchProfessionalAdapter;
 import hireapro.himanshu.hireapro.dataclass.Professional;
@@ -41,6 +45,7 @@ private RecyclerView favoriteRecyclerView;
     SearchProfessionalAdapter mAdapter;
     Professional professional;
     ProgressDialog progressDialog;
+    boolean firstTime=true;
     private String professionalType = "plumber";
     String searchUrl = "http://hireapro.netii.net/api/user/favorite.php?user_id=";
     private double userLatitude = 28.350595, userLongitude = 77.3543528;
@@ -59,11 +64,30 @@ private RecyclerView favoriteRecyclerView;
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_favorites, container, false);
         prepareUrl(userID, userLatitude, userLongitude);
-        Log.d("Url of ss",searchUrl);
         favoriteRecyclerView = (RecyclerView) view.findViewById(R.id.favorite_fragment_recycler_view);
         initializeComponents();
 
+        if(firstTime==true)
         new ConnectServer().execute();
+        favoriteRecyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(getActivity(), new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        TextView t = (TextView) view.findViewById(R.id.name_search_result_row_textview);
+                        // Toast.makeText(SearchProfessionalActivity.this, "" + t.getText().toString() + "Position" + position, Toast.LENGTH_SHORT).show();
+                        Professional professional;
+                        Intent proDetails = new Intent(getActivity(), DetailedProfessionalInfo.class);
+
+                        professional = professionalList.get(position);
+
+                        proDetails.putExtra("ProObject", professional);
+                        startActivity(proDetails);
+                    }
+                })
+        );
+
+
+        firstTime = false;
         return view;
 
     }
@@ -72,7 +96,7 @@ private RecyclerView favoriteRecyclerView;
         searchUrl = searchUrl + userID + "&user_latitude=";
         searchUrl = searchUrl + userLatitude + "&user_longitude=";
         searchUrl = searchUrl + userLongitude ;
-        Log.d("URL",searchUrl);
+      //  Log.d("URL",searchUrl);
     }
 
     private void initializeComponents() {
