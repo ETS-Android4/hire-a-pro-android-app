@@ -1,10 +1,12 @@
 package hireapro.himanshu.hireapro.fragments;
 
 
-import android.os.Bundle;
 import android.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.support.v4.view.ViewPager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,9 +15,10 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import hireapro.himanshu.hireapro.ProfessionalListAdapter;
-import hireapro.himanshu.hireapro.ProfessionalCategory;
 import hireapro.himanshu.hireapro.R;
+import hireapro.himanshu.hireapro.adapters.ProCategoryAdapter;
+import hireapro.himanshu.hireapro.adapters.ViewPagerAdapter;
+import hireapro.himanshu.hireapro.dataclass.ProfessionalCategory;
 
 
 /**
@@ -23,10 +26,16 @@ import hireapro.himanshu.hireapro.R;
  */
 public class ProfessionalListFragment extends Fragment {
 
-    private RecyclerView pro_list;
+    RecyclerView.LayoutManager mLayoutManager;
+    ProCategoryAdapter proCategoryAdapter;
+    ProfessionalCategory professionalCategory;
+    ViewPager imageSliderViewPager;
+    String searchUrl = "http://hireapro.netii.net/api/user/favorite.php?user_id=";
+    private RecyclerView proCategoryRecyclerView;
+    private double userLatitude = 28.350595, userLongitude = 77.3543528;
+    private String userID = "UID101";
 
-   ProfessionalListAdapter professionalListAdapter;
-    List<ProfessionalCategory> professionalTypeList;
+    private List<ProfessionalCategory> professionalCategoryList = new ArrayList<ProfessionalCategory>();
 
     public ProfessionalListFragment() {
         // Required empty public constructor
@@ -36,36 +45,45 @@ public class ProfessionalListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootview = inflater.inflate(R.layout.fragment_professional_list,container,false);
-        pro_list = (RecyclerView) rootview.findViewById(R.id.pro_type_list_recyclerview);
-        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        View view = inflater.inflate(R.layout.fragment_professional_list, container, false);
+        imageSliderViewPager =(ViewPager) view.findViewById(R.id.imageSliderViewPager);
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getActivity());
+        imageSliderViewPager.setAdapter(viewPagerAdapter);
 
-        pro_list.setLayoutManager(llm);
-        pro_list.setItemAnimator(new DefaultItemAnimator());
-        professionalListAdapter = new ProfessionalListAdapter(professionalTypeList);
-        pro_list.setAdapter(professionalListAdapter);
-        prepareProfessionalListData();
-
-        return rootview;
+       // initializeComponents();
+        return view;
         //return inflater.inflate(R.layout.fragment_professional_list, container, false);
     }
 
+    private void initializeComponents() {
+
+
+
+    }
+
     private void prepareProfessionalListData() {
-        professionalTypeList= new ArrayList<ProfessionalCategory>();
+        professionalCategoryList = new ArrayList<ProfessionalCategory>();
+        Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.electrician_green);
 
-        ProfessionalCategory professionalType = new ProfessionalCategory(R.drawable.catering_blue,"Yo");
-        professionalTypeList.add(professionalType);
+        ProfessionalCategory professionalCategory = new ProfessionalCategory(b, "Yo");
+        professionalCategoryList.add(professionalCategory);
 
-        professionalType = new ProfessionalCategory(R.drawable.catering_blue,"Yo");
-        professionalTypeList.add(professionalType);
+        professionalCategory = new ProfessionalCategory(b, "Yo");
+        professionalCategoryList.add(professionalCategory);
 
-        professionalType = new ProfessionalCategory(R.drawable.catering_blue,"Yo");
-        professionalTypeList.add(professionalType);
+        professionalCategory = new ProfessionalCategory(b, "Yo");
+        professionalCategoryList.add(professionalCategory);
 
+        professionalCategory = new ProfessionalCategory(b, "Yo");
+        professionalCategoryList.add(professionalCategory);
 
+        professionalCategory = new ProfessionalCategory(b, "Yo");
+        professionalCategoryList.add(professionalCategory);
 
-        professionalListAdapter.notifyDataSetChanged();
+        professionalCategory = new ProfessionalCategory(b, "Yo");
+        professionalCategoryList.add(professionalCategory);
+
+        proCategoryAdapter.notifyDataSetChanged();
     }
 
 }

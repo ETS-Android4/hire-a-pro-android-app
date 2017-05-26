@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -24,14 +25,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
 import hireapro.himanshu.hireapro.DetailedProfessionalInfo;
 import hireapro.himanshu.hireapro.R;
 import hireapro.himanshu.hireapro.RecyclerItemClickListener;
-import hireapro.himanshu.hireapro.SearchProfessionalActivity;
-import hireapro.himanshu.hireapro.SearchProfessionalAdapter;
+import hireapro.himanshu.hireapro.adapters.SearchProfessionalAdapter;
 import hireapro.himanshu.hireapro.dataclass.Professional;
 import hireapro.himanshu.hireapro.dataclass.User;
 
@@ -104,7 +105,6 @@ private RecyclerView favoriteRecyclerView;
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Please Wait ....");
         mLayoutManager = new GridLayoutManager(this.getActivity(),2);
-        Log.d("debugMode", "The application stopped after this");
         favoriteRecyclerView.setLayoutManager(mLayoutManager);
         mAdapter = new SearchProfessionalAdapter(professionalList);
         favoriteRecyclerView.setAdapter(mAdapter);
@@ -184,7 +184,13 @@ private RecyclerView favoriteRecyclerView;
                     //Log.d("outletData", outlet.getOutletName());
                 }
 
-            } catch (Exception e) {
+            }
+            catch (UnknownHostException ex)
+            {
+               // Toast.makeText(getActivity(), "No Internet connection", Toast.LENGTH_SHORT).show();
+            }
+
+            catch (Exception e) {
                 e.printStackTrace();
                 loginFailure = true;
 

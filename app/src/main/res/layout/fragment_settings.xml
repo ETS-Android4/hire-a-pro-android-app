@@ -1,13 +1,210 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="hireapro.himanshu.hireapro.fragments.SettingsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:id="@+id/ll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="140dp"
+        android:orientation="horizontal"
+        >
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.6">
+            <ImageView
+                android:id="@+id/setting_fragment_user_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:clickable="true"
+                android:background="@android:drawable/list_selector_background"
+                android:src="@color/cardview_shadow_start_color"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="Profile Name"
+                android:textSize="20dp"
+                android:layout_marginTop="30dp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Set up Profile"
+                android:textSize="20dp"
+                android:clickable="true"
+                android:background="@android:drawable/list_selector_background"
+                android:layout_marginTop="15dp"
+
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/SplitLine_hor1"
+        android:layout_width="match_parent"
+        android:layout_height= "15dp"
+        android:layout_below="@id/ll"
+        android:background="@color/gray" />
+
+    <ImageView
+        android:id="@+id/setting_fragment_review_image"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:src="@drawable/ic_review"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@id/SplitLine_hor1"
+        android:layout_alignParentLeft="true"
+        />
+    <TextView
+        android:id="@+id/setting_fragment_review"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="20dp"
+        android:clickable="true"
+        android:background="@android:drawable/list_selector_background"
+        android:layout_toRightOf="@id/setting_fragment_review_image"
+        android:text="Reviews"
+        android:layout_below="@id/SplitLine_hor1"/>
+
+
+    <View
+        android:id="@+id/SplitLine_hor2"
+        android:layout_width="match_parent"
+        android:layout_height= "2dp"
+        android:layout_below="@id/setting_fragment_review"
+        android:background="@color/gray" />
+
+    <ImageView
+        android:id="@+id/setting_fragment_list_youself_image"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_marginLeft="30dp"
+        android:src="@drawable/ic_list_yourself"
+        android:layout_below="@id/SplitLine_hor2"
+        android:layout_alignParentLeft="true"
+        />
+    <TextView
+        android:id="@+id/setting_fragment_list_youself"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="20dp"
+        android:clickable="true"
+        android:background="@android:drawable/list_selector_background"
+        android:layout_toRightOf="@id/setting_fragment_list_youself_image"
+        android:text="List Yourself as Professional"
+        android:layout_below="@id/SplitLine_hor2"/>
+
+    <View
+        android:id="@+id/SplitLine_hor3"
+        android:layout_width="match_parent"
+        android:layout_height= "2dp"
+        android:layout_below="@id/setting_fragment_list_youself"
+        android:background="@color/gray" />
+
+    <ImageView
+        android:id="@+id/setting_fragment_add_address_image"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_marginLeft="30dp"
+        android:src="@drawable/ic_update_address"
+        android:layout_below="@id/SplitLine_hor3"
+        android:layout_alignParentLeft="true"
+        />
+    <TextView
+        android:id="@+id/setting_fragment_add_address"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/setting_fragment_add_address_image"
+        android:text="Update Your Address"
+        android:clickable="true"
+        android:background="@android:drawable/list_selector_background"
+        android:layout_below="@id/SplitLine_hor3"/>
+
+
+    <View
+        android:id="@+id/SplitLine_hor4"
+        android:layout_width="match_parent"
+        android:layout_height= "2dp"
+        android:layout_below="@id/setting_fragment_add_address_image"
+        android:background="@color/gray" />
+
+    <ImageView
+        android:id="@+id/setting_fragment_change_password_image"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_marginLeft="30dp"
+        android:src="@drawable/ic_password"
+        android:layout_below="@id/SplitLine_hor4"
+        android:layout_alignParentLeft="true"
+        />
+    <TextView
+        android:id="@+id/setting_fragment_change_password"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/setting_fragment_change_password_image"
+        android:text="Change Password"
+        android:clickable="true"
+        android:background="@android:drawable/list_selector_background"
+        android:layout_below="@id/SplitLine_hor4"/>
+
+
+    <View
+        android:id="@+id/SplitLine_hor5"
+        android:layout_width="match_parent"
+        android:layout_height= "2dp"
+        android:layout_below="@id/setting_fragment_change_password_image"
+        android:background="@color/gray" />
+
+    <ImageView
+        android:id="@+id/setting_fragment_logout_image"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_marginLeft="30dp"
+        android:src="@drawable/ic_sign_out"
+        android:layout_below="@id/SplitLine_hor5"
+        android:layout_alignParentLeft="true"
+        />
+    <TextView
+        android:id="@+id/setting_fragment_logout"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/setting_fragment_logout_image"
+        android:text="Sign Out"
+        android:clickable="true"
+        android:background="@android:drawable/list_selector_background"
+        android:layout_below="@id/SplitLine_hor5"/>
+
+
+
+
+</RelativeLayout>

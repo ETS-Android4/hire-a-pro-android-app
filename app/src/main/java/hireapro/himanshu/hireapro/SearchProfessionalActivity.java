@@ -26,6 +26,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import hireapro.himanshu.hireapro.adapters.SearchProfessionalAdapter;
 import hireapro.himanshu.hireapro.dataclass.Professional;
 import hireapro.himanshu.hireapro.dataclass.User;
 

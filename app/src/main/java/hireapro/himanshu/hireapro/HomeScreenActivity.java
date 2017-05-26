@@ -11,6 +11,7 @@ import android.view.MenuItem;
 
 import java.util.List;
 
+import hireapro.himanshu.hireapro.dataclass.ProfessionalCategory;
 import hireapro.himanshu.hireapro.fragments.FavoritesFragment;
 import hireapro.himanshu.hireapro.fragments.NotificationFragment;
 import hireapro.himanshu.hireapro.fragments.ProfessionalListFragment;
@@ -19,9 +20,6 @@ import hireapro.himanshu.hireapro.fragments.SettingsFragment;
 public class HomeScreenActivity extends AppCompatActivity {
 
 
-    RecyclerView proTypeRecyclerview;
-    ProfessionalListAdapter professionalListAdapter;
-    List<ProfessionalCategory> professionalTypeList;
 
     //Fragment declaration
     private ProfessionalListFragment professionalListFragment;
@@ -40,8 +38,6 @@ public class HomeScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
         initializeComponents();
-
-
 
 
     }
@@ -109,20 +105,6 @@ public class HomeScreenActivity extends AppCompatActivity {
 
     }
 
-    private void prepareProfessionalListData() {
 
-        ProfessionalCategory professionalType = new ProfessionalCategory(R.drawable.catering_blue,"Yo");
-        professionalTypeList.add(professionalType);
-
-        professionalType = new ProfessionalCategory(R.drawable.catering_blue,"Yo");
-        professionalTypeList.add(professionalType);
-
-        professionalType = new ProfessionalCategory(R.drawable.catering_blue,"Yo");
-        professionalTypeList.add(professionalType);
-
-
-
-        professionalListAdapter.notifyDataSetChanged();
-    }
 
 }
