@@ -111,6 +111,7 @@
                     android:layout_weight="1">
 
                     <LinearLayout
+                        android:id="@+id/plumber_ll"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
@@ -133,6 +134,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/electrician_ll"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
@@ -155,6 +157,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/painter_ll"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
@@ -185,6 +188,7 @@
                     android:layout_weight="1">
 
                     <LinearLayout
+                        android:id="@+id/catering_ll"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
@@ -207,6 +211,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/architect_ll"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
@@ -229,6 +234,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/locksmith_ll"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
@@ -258,6 +264,7 @@
                     android:layout_weight="1">
 
                     <LinearLayout
+                        android:id="@+id/computer_repair_ll"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
@@ -273,13 +280,14 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Plumber"
+                            android:text="Computer Repair"
                             android:textStyle="bold"
                             android:gravity="center_horizontal"/>
 
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/packers_ll"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
@@ -313,6 +321,83 @@
                             android:layout_weight="1"
                             android:scaleX="0.7"
                             android:scaleY="0.7"
+                            android:src="@drawable/pest_control_blue"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+    android:text="Pest Control"
+                            android:textStyle="bold"
+                            android:gravity="center_horizontal"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:id="@+id/mobile_repair_ll"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:scaleX="0.7"
+                            android:scaleY="0.7"
+                            android:src="@drawable/phone_green"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Phone repair"
+                            android:textStyle="bold"
+                            android:gravity="center_horizontal"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:scaleX="0.7"
+                            android:scaleY="0.7"
+                           />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:textStyle="bold"
+                            android:gravity="center_horizontal"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:scaleX="0.7"
+                            android:scaleY="0.7"
+
                             />
                         <TextView
                             android:layout_width="match_parent"
