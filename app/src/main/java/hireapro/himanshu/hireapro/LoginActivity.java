@@ -65,7 +65,7 @@ private User user;
                 }
                     break;
             case R.id.create_account_textview:
-                Toast.makeText(LoginActivity.this, "Welcome", Toast.LENGTH_SHORT).show();
+
                 startActivity(new Intent(LoginActivity.this,RegistrationActivity.class));
                 break;
             case R.id.forgot_password_textview:

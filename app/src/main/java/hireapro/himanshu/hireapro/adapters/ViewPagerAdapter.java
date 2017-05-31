@@ -18,7 +18,7 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     private Context context;
     private LayoutInflater layoutInflater;
-    Integer [] images = {R.drawable.toolbar_background,R.drawable.toolbar_background,R.drawable.toolbar_background};
+    Integer [] images = {R.drawable.banner1,R.drawable.toolbar_background,R.drawable.toolbar_background};
 
     public ViewPagerAdapter(Context context) {
         this.context = context;
