@@ -24,12 +24,13 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import hireapro.himanshu.hireapro.dataclass.User;
+import hireapro.himanshu.hireapro.dataclass.Utilities;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private String loginUrl ;
     private int CONNECTIONOUT_TIME = 15000;
-    ProgressDialog progressDialog;
+
 
 
 private User user;
@@ -82,12 +83,13 @@ private User user;
 
 
     private void prepareUrl() {
-      
-        loginUrl  = "http://hireapro.netii.net/api/user/loginuser_with_phoneno.php?phone_no=";
+
+        loginUrl = Utilities.SERVER_URL;
+        loginUrl = loginUrl + "/user/loginuser_with_phoneno.php?phone_no=";
         loginUrl = loginUrl + user.getPhone();
         loginUrl = loginUrl + "&password=";
         loginUrl = loginUrl + user.getPassword();
-        System.out.print(loginUrl);
+        Log.d("Login URL Prepared",loginUrl);
     }
 
 
@@ -139,10 +141,6 @@ private User user;
      //   remembermeSwitch = (Switch) findViewById(R.id.remember_me_toggle);
         forgotPasswordTextView = (TextView) findViewById(R.id.forgot_password_textview);
         createAccountTextView = (TextView) findViewById(R.id.create_account_textview);
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setCancelable(false);
-      //  progressDialog.setTitle("Processing");
-        progressDialog.setMessage("Please Wait ....");
         user = new User();
 
     }
@@ -156,7 +154,6 @@ boolean loginFailure = false;
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            progressDialog.show();
         }
 
         @Override
@@ -218,7 +215,7 @@ return  null;
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            progressDialog.hide();
+
 
             if(loginFailure==true)
             {
