@@ -35,6 +35,7 @@ import hireapro.himanshu.hireapro.RecyclerItemClickListener;
 import hireapro.himanshu.hireapro.adapters.SearchProfessionalAdapter;
 import hireapro.himanshu.hireapro.dataclass.Professional;
 import hireapro.himanshu.hireapro.dataclass.User;
+import hireapro.himanshu.hireapro.dataclass.Utilities;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,6 +47,7 @@ private RecyclerView favoriteRecyclerView;
     SearchProfessionalAdapter mAdapter;
     Professional professional;
     ProgressDialog progressDialog;
+    String favoriteUrl;
     boolean firstTime=true;
     private String professionalType = "plumber";
     String searchUrl = "http://hireapro.netii.net/api/user/favorite.php?user_id=";
@@ -58,6 +60,16 @@ private RecyclerView favoriteRecyclerView;
         // Required empty public constructor
     }
 
+    private void prepareFavoriteUrl() {
+        favoriteUrl = Utilities.SERVER_URL;
+        favoriteUrl = favoriteUrl + "/user/favorite.php?user_id=";
+        favoriteUrl = favoriteUrl + Utilities.ID;
+        favoriteUrl = favoriteUrl + "&user_latitude=";
+        favoriteUrl = favoriteUrl + Utilities.location_latitude;
+        favoriteUrl = favoriteUrl + "&user_longitude=";
+        favoriteUrl = favoriteUrl + Utilities.location_longitude;
+        Log.d("Favorite Url ", favoriteUrl);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

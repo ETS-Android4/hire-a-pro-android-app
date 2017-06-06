@@ -47,8 +47,8 @@ public class HomeScreenActivity extends AppCompatActivity {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            fragmentTransaction = fragmentManager.beginTransaction();
 
+            fragmentTransaction = fragmentManager.beginTransaction();
             switch (item.getItemId()) {
                 case R.id.navigation_home:
 
@@ -87,7 +87,8 @@ public class HomeScreenActivity extends AppCompatActivity {
         navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setSelectedItemId(0);
-
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content, professionalListFragment).commit();
 //        proTypeRecyclerview = (RecyclerView) findViewById(R.id.pro_type_list_recyclerview);
 //        professionalListAdapter = new ProfessionalListAdapter(professionalTypeList);
         //proTypeRecyclerview.setAdapter(professionalListAdapter);

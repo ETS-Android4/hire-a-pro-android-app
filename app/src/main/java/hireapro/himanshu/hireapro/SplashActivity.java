@@ -50,7 +50,7 @@ public class SplashActivity extends AppCompatActivity {
             gpsTracker = new GPSTracker(SplashActivity.this);
         }
 
-        Intent intent = new Intent(this, LoginActivity.class);
+        Intent intent = new Intent(this, HomeScreenActivity.class);
         startActivity(intent);
         finish();
     }

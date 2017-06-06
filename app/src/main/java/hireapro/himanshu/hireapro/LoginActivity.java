@@ -191,8 +191,6 @@ boolean loginFailure = false;
                     startActivity(new Intent(LoginActivity.this, HomeScreenActivity.class));
                     return null;
                 }
-
-
             }
 
 
