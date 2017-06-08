@@ -37,20 +37,20 @@ public class SplashActivity extends AppCompatActivity {
         Log.d("Diatnace", distanceInMeters+"");*/
 
 
-        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
+      //  if(Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
 
 
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+           if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.INTERNET},11);
                 return;
             }
-        }
+
         else {
 
             gpsTracker = new GPSTracker(SplashActivity.this);
         }
 
-        Intent intent = new Intent(this, HomeScreenActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
     }
@@ -65,4 +65,8 @@ public class SplashActivity extends AppCompatActivity {
                 return;
         }
     }
+
+
+
+
 }

@@ -13,6 +13,8 @@ import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 
+import hireapro.himanshu.hireapro.SplashActivity;
+
 /**
  * Created by root on 3/6/17.
  */
@@ -30,7 +32,7 @@ public class GPSTracker extends Service implements LocationListener {
     // Flag for GPS status
     boolean canGetLocation = false;
 
-    Location location; // Location
+    Location  location; // Location
     double latitude; // Latitude
     double longitude; // Longitude
 
@@ -55,7 +57,7 @@ public class GPSTracker extends Service implements LocationListener {
 
 Log.d("store val",Utilities.location_longitude + ","+Utilities.location_latitude);
      String city =  Utilities.getClosestCityName(mContext,Utilities.location_latitude,Utilities.location_longitude);
-        Log.d("City name ",city);
+     //   Log.d("City name ",city);
     }
 
     public Location getLocation() {
@@ -127,7 +129,7 @@ Log.d("store val",Utilities.location_longitude + ","+Utilities.location_latitude
      * Stop using GPS listener
      * Calling this function will stop using GPS in your app.
      * */
-    public void stopUsingGPS(){
+    public  void stopUsingGPS(){
         if(locationManager != null){
             locationManager.removeUpdates(GPSTracker.this);
         }
@@ -209,7 +211,7 @@ Log.d("store val",Utilities.location_longitude + ","+Utilities.location_latitude
 
         Log.d("On Loc change",Utilities.location_longitude + ","+Utilities.location_latitude);
         String city =  Utilities.getClosestCityName(mContext,Utilities.location_latitude,Utilities.location_longitude);
-
+        SplashActivity.gpsTracker.stopUsingGPS();
     }
 
 

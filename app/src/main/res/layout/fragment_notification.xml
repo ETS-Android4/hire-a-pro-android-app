@@ -2,12 +2,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="hireapro.himanshu.hireapro.fragments.NotificationFragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
     <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/notifIcon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_centerInParent="true"
+       android:src="@drawable/ic_notif" />
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        
+        android:gravity="center"
+        android:layout_below="@id/notifIcon"
+        android:text="No Notifications"/>
+    </LinearLayout>
 </FrameLayout>

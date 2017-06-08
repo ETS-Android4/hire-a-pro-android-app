@@ -11,9 +11,10 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Switch;
+
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.v7.widget.SwitchCompat;
 
 import org.json.JSONObject;
 
@@ -37,9 +38,10 @@ private User user;
     //views
     private EditText emailPhoneEditText,passwordEditText;
     private Button loginButton;
-    private Switch remembermeSwitch;
+    private SwitchCompat remembermeSwitch;
     private TextView forgotPasswordTextView,createAccountTextView;
     private TextInputLayout inputLayoutEmail,inputLayoutPassword;
+    ProgressDialog progressDialog;
 
 
     @Override
@@ -78,7 +80,10 @@ private User user;
     }
 
     private boolean checkRememberMe() {
-        return false;
+        if(remembermeSwitch.isChecked())
+            return true;
+        else
+            return false;
     }
 
 
@@ -137,8 +142,11 @@ private User user;
         loginButton = (Button) findViewById(R.id.login_button);
         inputLayoutEmail = (TextInputLayout) findViewById(R.id.input_layout_emailphone);
         inputLayoutPassword = (TextInputLayout) findViewById(R.id.input_layout_password);
+progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Please Wait ...");
+        progressDialog.setCancelable(false);
 
-     //   remembermeSwitch = (Switch) findViewById(R.id.remember_me_toggle);
+      remembermeSwitch = (SwitchCompat) findViewById(R.id.remember_me_toggle);
         forgotPasswordTextView = (TextView) findViewById(R.id.forgot_password_textview);
         createAccountTextView = (TextView) findViewById(R.id.create_account_textview);
         user = new User();
@@ -153,7 +161,7 @@ boolean loginFailure = false;
 
         @Override
         protected void onPreExecute() {
-            super.onPreExecute();
+            super.onPreExecute();progressDialog.show();
         }
 
         @Override
@@ -188,7 +196,9 @@ boolean loginFailure = false;
                     return name;
                 }
                 else {
-                    startActivity(new Intent(LoginActivity.this, HomeScreenActivity.class));
+                    Utilities.id = finalResponse.getString("user_id");
+                    Intent i = new Intent(LoginActivity.this,HomeScreenActivity.class);
+                    startActivity(i);
                     return null;
                 }
             }
@@ -213,7 +223,7 @@ return  null;
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-
+progressDialog.hide();
 
             if(loginFailure==true)
             {

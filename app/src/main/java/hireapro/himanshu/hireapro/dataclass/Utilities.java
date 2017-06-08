@@ -180,12 +180,11 @@ public class Utilities {
                 Log.d("Country name",addressList.get(0).getCountryName());
                 Log.d("Feature name",addressList.get(0).getFeatureName());
                // Log.d("Phone",addressList.get(0).getPhone());
-                Log.d("POstal code",addressList.get(0).getPostalCode());
+        //        Log.d("POstal code",addressList.get(0).getPostalCode());
 //                Log.d("POstal code",addressList.get(0).getPremises());
-//                Log.d("POstal code",addressList.get(0).getSubAdminArea());
-                Log.d("Sublocality",addressList.get(0).getSubLocality());
+      //         Log.d("POstal code",addressList.get(0).getSubAdminArea());
+       //     Log.d("Sublocality",addressList.get(0).getSubLocality());
                 Log.d("Address line",addressList.get(0).getAddressLine(0));
-
 
 
             }

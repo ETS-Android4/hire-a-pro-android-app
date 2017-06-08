@@ -6,6 +6,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
@@ -19,6 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -29,22 +32,25 @@ import java.util.List;
 import hireapro.himanshu.hireapro.adapters.SearchProfessionalAdapter;
 import hireapro.himanshu.hireapro.dataclass.Professional;
 import hireapro.himanshu.hireapro.dataclass.User;
+import hireapro.himanshu.hireapro.dataclass.Utilities;
 
 public class SearchProfessionalActivity extends AppCompatActivity {
     int DEFAULTDISTANCE = 5;
-    ProgressDialog progressDialog;
+
     RecyclerView searchedProList;
     RecyclerView.LayoutManager mLayoutManager;
     Professional professional;
     String searchUrl = "http://hireapro.netii.net/api/pro/list_professional.php?type=";
     String imageUrl;
     Bitmap defaultProImage;
-    private String professionalType = "plumber";
-    private double userLatitude = 28.350595, userLongitude = 77.3543528;
+    ProgressDialog progressDialog;
+
+
     private int distance = DEFAULTDISTANCE;
     private RecyclerView recyclerView;
     private List<Professional> professionalList = new ArrayList<>();
     private SearchProfessionalAdapter searchProfessionalAdapter;
+    private CoordinatorLayout coordinatorLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +62,8 @@ public class SearchProfessionalActivity extends AppCompatActivity {
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         initializeComponents();
-        extractParameters();
-        prepareUrl(professionalType, userLatitude, userLongitude, distance);
+
+       searchUrl = getIntent().getStringExtra("url");
         new ConnectServer().execute();
 
 
@@ -79,14 +85,8 @@ public class SearchProfessionalActivity extends AppCompatActivity {
         );
     }
 
-    private void extractParameters() {
-    }
 
     private void initializeComponents() {
-
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setCancelable(false);
-        progressDialog.setMessage("Please Wait ....");
         recyclerView = (RecyclerView) findViewById(R.id.pro_search_recycler);
         searchProfessionalAdapter = new SearchProfessionalAdapter(professionalList);
         mLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
@@ -94,6 +94,12 @@ public class SearchProfessionalActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(searchProfessionalAdapter);
         defaultProImage = BitmapFactory.decodeResource(getResources(), R.drawable.default_user);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Please Wait ....");
+        coordinatorLayout = (CoordinatorLayout) findViewById(R.id
+                .coo);
+
     }
 
     private void prepareUrl(String professionalType, double userLatitude, double userLongitude, int distance) {
@@ -137,45 +143,55 @@ public class SearchProfessionalActivity extends AppCompatActivity {
 
                 Log.d("reponse", response);
                 JSONObject finalResponse = new JSONObject(response);
-                JSONArray jsonArray = finalResponse.getJSONArray("professional_list");
+                int noOfResults = finalResponse.getInt("row_count");
+                if (noOfResults > 0) {
+                    JSONArray jsonArray = finalResponse.getJSONArray("professional_list");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        professional = new Professional();
+                        JSONObject finaljsonobject = jsonArray.getJSONObject(i);
+                        professional.setProID(finaljsonobject.getString("pro_id"));
+                        professional.setName(finaljsonobject.getString("name"));
+                        professional.setBaseRate(Integer.valueOf(finaljsonobject.getString("base_rate")));
+                        professional.setPhoneNumber(Long.valueOf(finaljsonobject.getString("phone_no")));
+                        professional.setJob(finaljsonobject.getString("job_name"));
+                        professional.setProfilePictureURL(finaljsonobject.getString("profile_picture_url"));
 
+                        // professional.setSecondryPhoneNumber(Long.valueOf(finaljsonobject.getString("phone_no_secondary")));
+                        professional.setAddress(finaljsonobject.getString("address"));
+                        professional.setLocationLatitude(Float.valueOf(finaljsonobject.getString("base_location_latitude")));
+                        professional.setLocationLongitude(Float.valueOf(finaljsonobject.getString("base_location_longitude")));
+                        professional.setDistanceFromUser(Float.valueOf(finaljsonobject.getString("distance")));
 
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    professional = new Professional();
-                    JSONObject finaljsonobject = jsonArray.getJSONObject(i);
-                    professional.setProID(finaljsonobject.getString("pro_id"));
-                    professional.setName(finaljsonobject.getString("name"));
-                    professional.setBaseRate(Integer.valueOf(finaljsonobject.getString("base_rate")));
-                    professional.setPhoneNumber(Long.valueOf(finaljsonobject.getString("phone_no")));
-                    professional.setJob(finaljsonobject.getString("job_name"));
-                    professional.setProfilePictureURL(finaljsonobject.getString("profile_picture_url"));
+                        if (professional.getProfilePictureURL().equals(""))
+                            professional.setUserImage(defaultProImage);
+                        else {
+                            url = new URL(professional.getProfilePictureURL());
+                            httpURLConnection = (HttpURLConnection) url.openConnection();
+                            httpURLConnection.setConnectTimeout(100 * 30);
+                            httpURLConnection.setReadTimeout(100 * 30);
 
-                    // professional.setSecondryPhoneNumber(Long.valueOf(finaljsonobject.getString("phone_no_secondary")));
-                    professional.setAddress(finaljsonobject.getString("address"));
-                    professional.setLocationLatitude(Float.valueOf(finaljsonobject.getString("base_location_latitude")));
-                    professional.setLocationLongitude(Float.valueOf(finaljsonobject.getString("base_location_longitude")));
-                    professional.setDistanceFromUser(Float.valueOf(finaljsonobject.getString("distance")));
+                            b = BitmapFactory.decodeStream((InputStream) httpURLConnection.getContent(), null, null);
+                            if (b == null)
+                                b = defaultProImage;
+                            professional.setUserImage(b);
+                        }
+                        //    Log.d("Sample Data",finaljsonobject.getString("OutletName"));
+                        professionalList.add(professional);
 
-                    if (professional.getProfilePictureURL().equals(""))
-                        professional.setUserImage(defaultProImage);
-                    else {
-                        url = new URL(professional.getProfilePictureURL());
-                        httpURLConnection = (HttpURLConnection) url.openConnection();
-                        httpURLConnection.setConnectTimeout(100 * 30);
-                        httpURLConnection.setReadTimeout(100 * 30);
-
-                        b = BitmapFactory.decodeStream((InputStream) httpURLConnection.getContent(), null, null);
-                        if (b == null)
-                            b = defaultProImage;
-                        professional.setUserImage(b);
+                        //Log.d("outletData", outlet.getOutletName());
                     }
-                    //    Log.d("Sample Data",finaljsonobject.getString("OutletName"));
-                    professionalList.add(professional);
-
-                    //Log.d("outletData", outlet.getOutletName());
                 }
+                showSnackBare(noOfResults + " Result(s) Found");
 
-            } catch (Exception e) {
+
+            }
+            catch (FileNotFoundException e) {
+                e.printStackTrace();
+                loginFailure = true;
+                showSnackBare("0 Results Found");
+
+            }
+            catch (Exception e) {
                 e.printStackTrace();
                 loginFailure = true;
 
@@ -199,8 +215,14 @@ public class SearchProfessionalActivity extends AppCompatActivity {
             //Hiding the progress bar
 
             progressDialog.hide();
-
         }
+    }
+
+    private void showSnackBare(String response) {
+        Snackbar snackbar = Snackbar
+                .make(coordinatorLayout, response, Snackbar.LENGTH_LONG);
+
+        snackbar.show();
     }
 
 

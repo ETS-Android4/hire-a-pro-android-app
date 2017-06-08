@@ -51,8 +51,7 @@ private RecyclerView favoriteRecyclerView;
     boolean firstTime=true;
     private String professionalType = "plumber";
     String searchUrl = "http://hireapro.netii.net/api/user/favorite.php?user_id=";
-    private double userLatitude = 28.350595, userLongitude = 77.3543528;
-    private String userID="UID101";
+
     Bitmap defaultProImage;
     private List<Professional> professionalList = new ArrayList<>();
 
@@ -63,7 +62,7 @@ private RecyclerView favoriteRecyclerView;
     private void prepareFavoriteUrl() {
         favoriteUrl = Utilities.SERVER_URL;
         favoriteUrl = favoriteUrl + "/user/favorite.php?user_id=";
-        favoriteUrl = favoriteUrl + Utilities.ID;
+        favoriteUrl = favoriteUrl + "UID101";
         favoriteUrl = favoriteUrl + "&user_latitude=";
         favoriteUrl = favoriteUrl + Utilities.location_latitude;
         favoriteUrl = favoriteUrl + "&user_longitude=";
@@ -76,11 +75,11 @@ private RecyclerView favoriteRecyclerView;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_favorites, container, false);
-        prepareUrl(userID, userLatitude, userLongitude);
+        prepareUrl(Utilities.id, Utilities.location_latitude, Utilities.location_longitude);
         favoriteRecyclerView = (RecyclerView) view.findViewById(R.id.favorite_fragment_recycler_view);
         initializeComponents();
-
-        if(firstTime==true)
+        prepareFavoriteUrl();
+        if(firstTime==true )
         new ConnectServer().execute();
         favoriteRecyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(getActivity(), new RecyclerItemClickListener.OnItemClickListener() {
@@ -131,6 +130,7 @@ private RecyclerView favoriteRecyclerView;
         protected void onPreExecute() {
             super.onPreExecute();
             progressDialog.show();
+            Log.d("favorite url",favoriteUrl);
         }
 
         @Override
@@ -140,7 +140,7 @@ private RecyclerView favoriteRecyclerView;
             //   httpURLConnection.setConnectTimeout(CONNECTIONOUT_TIME);
             BufferedReader bufferedReader = null;
             try {
-                URL url = new URL(searchUrl);
+                URL url = new URL(favoriteUrl);
                 httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.connect();
 

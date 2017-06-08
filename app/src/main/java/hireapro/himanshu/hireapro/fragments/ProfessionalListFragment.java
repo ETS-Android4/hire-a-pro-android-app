@@ -2,6 +2,10 @@ package hireapro.himanshu.hireapro.fragments;
 
 
 import android.app.Fragment;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
@@ -12,13 +16,25 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
 import hireapro.himanshu.hireapro.R;
+import hireapro.himanshu.hireapro.SearchProfessionalActivity;
 import hireapro.himanshu.hireapro.adapters.ProCategoryAdapter;
 import hireapro.himanshu.hireapro.adapters.ViewPagerAdapter;
+import hireapro.himanshu.hireapro.dataclass.Professional;
 import hireapro.himanshu.hireapro.dataclass.ProfessionalCategory;
+import hireapro.himanshu.hireapro.dataclass.User;
 import hireapro.himanshu.hireapro.dataclass.Utilities;
 
 
@@ -35,7 +51,8 @@ public class ProfessionalListFragment extends Fragment implements View.OnClickLi
             computerRepairLinearLayout, packersAndMoversLinearLayout, pestControlLinearLayout, phoneRepairLinearLayout;
     TextView cityHeaderTextView;
     View rootView;
-    String searchUrl,favoriteUrl;
+
+    String searchUrl;
     //String searchUrl = "http://hireapro.netii.net/api/user/favorite.php?user_id=";
     private RecyclerView proCategoryRecyclerView;
     private List<ProfessionalCategory> professionalCategoryList = new ArrayList<ProfessionalCategory>();
@@ -53,10 +70,8 @@ public class ProfessionalListFragment extends Fragment implements View.OnClickLi
         imageSliderViewPager = (ViewPager) rootView.findViewById(R.id.imageSliderViewPager);
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getActivity());
         imageSliderViewPager.setAdapter(viewPagerAdapter);
-
-
         initializeComponents();
-        //prepareUrl();
+
         return rootView;
         //return inflater.inflate(R.layout.fragment_professional_list, container, false);
     }
@@ -106,10 +121,49 @@ public class ProfessionalListFragment extends Fragment implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
+        String userType=null;
         switch (v.getId()) {
             case R.id.electrician_ll:
-
-
+                userType = "Electrician";
+                break;
+            case R.id.plumber_ll:
+                userType = "Plumber";
+                break;
+            case R.id.painter_ll:
+                userType = "Painter";
+                break;
+            case R.id.catering_ll:
+                userType = "Catering";
+                break;
+            case R.id.architect_ll:
+                userType = "Architect";
+                break;
+            case R.id.locksmith_ll:
+                userType = "Locksmith";
+                break;
+            case R.id.computer_repair_ll:
+                userType = "Computer+Repair";
+                break;
+            case R.id.packers_ll:
+                userType = "Packers+and+Movers";
+                break;
+            case R.id.pest_control_ll:
+                userType = "Pest+Control";
+                break;
+            case R.id.mobile_repair_ll:
+                userType = "Mobile+Repair";
+                break;
         }
+        prepareSearchUrl(userType);
+        callSearchActivity(searchUrl);
     }
+
+    private void callSearchActivity(String url) {
+        Intent i = new Intent(getActivity(), SearchProfessionalActivity.class);
+        i.putExtra("url",url);
+        startActivity(i);
+    }
+
+
+
 }
