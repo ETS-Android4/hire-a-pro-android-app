@@ -5,8 +5,13 @@ With the help of Hire A Pro user can find list of professionals working/living a
 
 Installation
 
+
 Just Install the app in your android phone (Supproted OS version (Jellybean - Lollipop))using this link
-https://drive.google.com/drive/folders/0B61UINTkcIAYZDN3VldJZ2dTWEk?usp=sharing (Contains App and snapshots)
+App : 
+https://drive.google.com/open?id=0B61UINTkcIAYWmEwTlhfSktOeEU
+
+Snapshots :
+https://drive.google.com/open?id=0B61UINTkcIAYY2F3aDJIejctTzA
 
 Web services are Up and running to power the app.
 
