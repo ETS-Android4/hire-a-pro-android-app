@@ -1,4 +1,8 @@
 # hire-a-pro-android-app
+# College project do not consider this for professional project
+
+# App doesn;t work anymore because api services hosted at https://in.000webhost.com/ has been discontinued
+
 
 What is Hire A Pro ?
 With the help of Hire A Pro user can find list of professionals working/living around him/her. Using the Hire A Pro application a professional can list himself as a professional and he will be visible to people nearby searching for a professional.
