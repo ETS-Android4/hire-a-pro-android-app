@@ -14,7 +14,7 @@ Just Install the app in your android phone (Supproted OS version (Jellybean - Lo
 
 App : 
 
-https://drive.google.com/open?id=0B61UINTkcIAYWmEwTlhfSktOeEU
+https://drive.google.com/file/d/0B61UINTkcIAYcEJ3ZDBqYzV5LVU/view?usp=sharing&resourcekey=0-8RG5iBQlIUYt-FCODdrt4w
 
 Snapshots :
 
